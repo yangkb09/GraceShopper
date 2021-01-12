@@ -1,7 +1,30 @@
 'use strict'
 
 const db = require('../server/db')
-const {User} = require('../server/db/models')
+const {User, Property} = require('../server/db/models')
+
+const properties = [
+  {
+    name: 'Apple Orchard Estate',
+    imageUrl: 'https://robbreport.com/wp-content/uploads/2018/10/pumpkin-1.jpg',
+    address: '1234 Gala Lane',
+    price: 1000000
+  },
+  {
+    name: 'Haunted Mansion',
+    imageUrl:
+      'https://bigseventravel.com/wp-content/uploads/2019/10/Franklin-Caste-Most-Haunted-House-in-Ohio.jpg',
+    address: '567 Wayward Way',
+    price: 100000
+  },
+  {
+    name: 'Joneses Ski Chalet',
+    imageUrl:
+      'https://www.skiinluxury.com/blog/wp-content/uploads/2018/10/chalets_exterieurs1_hd-e1539344596992.jpg',
+    address: '89 Black Diamond Boulevard',
+    price: 5000000
+  }
+]
 
 async function seed() {
   await db.sync({force: true})
@@ -12,8 +35,14 @@ async function seed() {
     User.create({email: 'murphy@email.com', password: '123'})
   ])
 
+  await Promise.all(
+    properties.map(property => {
+      return Property.create(property)
+    })
+  )
+
   console.log(`seeded ${users.length} users`)
-  console.log(`seeded successfully`)
+  console.log(`seeded ${properties.length} properties`)
 }
 
 // We've separated the `seed` function from the `runSeed` function.

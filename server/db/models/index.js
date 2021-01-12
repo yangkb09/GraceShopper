@@ -9,8 +9,8 @@ const Property = require('./property')
  */
 
 //User-Property Association
-// User.belongsToMany(Property, {through: 'property-user'})
-// Property.belongsToMany(User, {through: 'property-user'})
+User.belongsToMany(Property, {through: 'property-user'})
+Property.belongsToMany(User, {through: 'property-user'})
 
 /**
  * We'll export all of our models here, so that any time a module needs a model,

@@ -6,32 +6,32 @@ const Property = db.define('property', {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
-      notEmpty: true,
-    },
+      notEmpty: true
+    }
   },
   imageUrl: {
     type: Sequelize.TEXT,
     allowNull: false,
     validate: {
-      notEmpty: true,
+      notEmpty: true
     },
     defaultValue:
-      'https://cdn.vox-cdn.com/thumbor/5dsOP0u6aVw8SdEFWmo7CAP0CRk=/0x0:1024x682/1200x900/filters:focal(431x260:593x422):no_upscale()/cdn.vox-cdn.com/uploads/chorus_image/image/66353264/3150709_36_0.0.jpg',
+      'https://cdn.vox-cdn.com/thumbor/5dsOP0u6aVw8SdEFWmo7CAP0CRk=/0x0:1024x682/1200x900/filters:focal(431x260:593x422):no_upscale()/cdn.vox-cdn.com/uploads/chorus_image/image/66353264/3150709_36_0.0.jpg'
   },
-  adress: {
+  address: {
     type: Sequelize.TEXT,
     allowNull: false,
     validate: {
-      notEmpty: true,
-    },
+      notEmpty: true
+    }
   },
   price: {
     type: Sequelize.INTEGER,
     allowNull: false,
     validate: {
-      notEmpty: true,
-    },
-  },
+      notEmpty: true
+    }
+  }
 })
 
 module.exports = Property
