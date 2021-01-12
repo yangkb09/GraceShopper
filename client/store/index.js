@@ -6,7 +6,7 @@ import user from './user'
 import properties from './properties'
 import cart from './cart'
 
-const reducer = combineReducers({
+export const reducer = combineReducers({
   user: user,
   properties: properties,
   cart: cart,
