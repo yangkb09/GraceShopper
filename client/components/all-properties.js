@@ -1,14 +1,14 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { _getProperties, _addToCart } from '../redux/properties';
-import {Link} from 'react-router-dom';
+import React from 'react'
+import {connect} from 'react-redux'
+import {_getProperties} from '../store/properties'
+import {Link} from 'react-router-dom'
 
 // Notice that we're exporting the Allproperties component twice. The named export
 // (below) is not connected to Redux, while the default export (at the very
 // bottom) is connected to Redux. Our tests should cover _both_ cases.
 export class AllProperties extends React.Component {
   componentDidMount() {
-    this.props.getProperties();
+    this.props.getProperties()
   }
 
   render() {
@@ -24,7 +24,12 @@ export class AllProperties extends React.Component {
                   Address: {property.address}
                   Price: {property.price}
                   <Link to={`/properties/${property.id}`}>View Detail</Link>
-                  <button type="button" onClick={() => this.props.addToCart(property)}>Add to Cart</button>
+                  <button
+                    type="button"
+                    onClick={() => this.props.addToCart(property)}
+                  >
+                    Add to Cart
+                  </button>
                 </div>
               </div>
             )
@@ -36,7 +41,6 @@ export class AllProperties extends React.Component {
         <div>
           <p>No properties for sale right now! Please come back soon.</p>
         </div>
-
       )
     }
   }
@@ -44,15 +48,15 @@ export class AllProperties extends React.Component {
 
 const mapState = (state) => {
   return {
-    properties: state.properties
-  };
-};
+    properties: state.properties,
+  }
+}
 
 const mapDispatch = (dispatch) => {
   return {
     getProperties: () => dispatch(_getProperties()),
-    addToCart: (property) => dispatch(_addToCart(property))
-  };
-};
+    // addToCart: (property) => dispatch(property))
+  }
+}
 
-export default connect(mapState, mapDispatch)(AllProperties);
+export default connect(mapState, mapDispatch)(AllProperties)
