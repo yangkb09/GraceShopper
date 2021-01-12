@@ -19,3 +19,35 @@ router.get('/:id', async (req, res, next) => {
     next(error)
   }
 })
+
+router.post('/', async (req, res, next) => {
+  try {
+    const newProperty = await Property.create(req.body)
+    res.json(newProperty)
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.delete('/:id', async (req, res, next) => {
+  try {
+    await Property.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    res.status(204).end()
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.put('/:id', async (req, res, next) => {
+  try {
+    const property = await Property.findByPk(req.params.id)
+    await property.update(req.body)
+    res.json(property)
+  } catch (error) {
+    next(error)
+  }
+})
