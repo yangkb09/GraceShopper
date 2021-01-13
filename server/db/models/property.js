@@ -31,6 +31,13 @@ const Property = db.define('property', {
     validate: {
       notEmpty: true
     }
+  },
+  description: {
+    type: Sequelize.TEXT,
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   }
 })
 

@@ -2,6 +2,9 @@ const router = require('express').Router()
 const {Property} = require('../db/models')
 module.exports = router
 
+const isAdmin = (req, res, next) =>
+  req.user.isAdmin ? next() : res.send('Access Denied.')
+
 router.get('/', async (req, res, next) => {
   try {
     const properties = await Property.findAll()
@@ -13,7 +16,9 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    const property = await Property.findByPk(req.params.id)
+    const property = await Property.findByPk(req.params.id, {
+      include: ['name', 'imageUrl', 'address', 'price', 'description']
+    })
     res.json(property)
   } catch (error) {
     next(error)
@@ -22,7 +27,14 @@ router.get('/:id', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    const newProperty = await Property.create(req.body)
+    let {name, imageUrl, address, price, description} = req.body
+    const newProperty = await Property.create({
+      name,
+      imageUrl,
+      address,
+      price,
+      description
+    })
     res.json(newProperty)
   } catch (error) {
     next(error)
