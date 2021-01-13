@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const {Property} = require('../db/models')
 module.exports = router
-
+//delete this comment later
 const isAdmin = (req, res, next) =>
   req.user.isAdmin ? next() : res.send('Access Denied.')
 
