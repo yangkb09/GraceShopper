@@ -107,14 +107,16 @@ const updateTravisYAML = (app, key) => {
       api_key: {secure: key} //eslint-disable-line
     })
   )
-  doc.contents.items.filter(item => item.key in keyComments).forEach(item => {
-    item.comment = keyComments[item.key]
-    if (item.key === 'deploy') {
-      item.value.items.forEach(item_ => {
-        item_.commentBefore = keyComments[item_.key]
-      })
-    }
-  })
+  doc.contents.items
+    .filter(item => item.key in keyComments)
+    .forEach(item => {
+      item.comment = keyComments[item.key]
+      if (item.key === 'deploy') {
+        item.value.items.forEach(item_ => {
+          item_.commentBefore = keyComments[item_.key]
+        })
+      }
+    })
   doc.comment = ''
   fs.writeFileSync('.travis.yml', doc.toString())
   return true
