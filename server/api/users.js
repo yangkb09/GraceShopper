@@ -2,6 +2,9 @@ const router = require('express').Router()
 const {User} = require('../db/models')
 module.exports = router
 
+const isAdmin = (req, res, next) =>
+  req.user.isAdmin ? next() : res.send('Access Denied.')
+
 router.get('/', async (req, res, next) => {
   try {
     const users = await User.findAll({
@@ -18,7 +21,9 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    const user = await User.findByPk(req.params.id)
+    const user = await User.findByPk(req.params.id, {
+      include: ['email']
+    })
     res.json(user)
   } catch (error) {
     next(error)
@@ -27,7 +32,8 @@ router.get('/:id', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    const newUser = await User.create(req.body)
+    let {email, password} = req.body
+    const newUser = await User.create({email, password})
     res.json(newUser)
   } catch (error) {
     next(error)
