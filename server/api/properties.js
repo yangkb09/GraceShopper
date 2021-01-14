@@ -1,19 +1,14 @@
 const router = require('express').Router()
-const {User} = require('../db/models')
+const {Property} = require('../db/models')
 module.exports = router
-
+//delete this comment later
 const isAdmin = (req, res, next) =>
   req.user.isAdmin ? next() : res.send('Access Denied.')
 
 router.get('/', async (req, res, next) => {
   try {
-    const users = await User.findAll({
-      // explicitly select only the id and email fields - even though
-      // users' passwords are encrypted, it won't help if we just
-      // send everything to anyone who asks!
-      attributes: ['id', 'email']
-    })
-    res.json(users)
+    const properties = await Property.findAll()
+    res.json(properties)
   } catch (err) {
     next(err)
   }
@@ -21,10 +16,10 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    const user = await User.findByPk(req.params.id, {
-      include: ['email']
+    const property = await Property.findByPk(req.params.id, {
+      include: ['name', 'imageUrl', 'address', 'price', 'description']
     })
-    res.json(user)
+    res.json(property)
   } catch (error) {
     next(error)
   }
@@ -32,9 +27,15 @@ router.get('/:id', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    let {email, password} = req.body
-    const newUser = await User.create({email, password})
-    res.json(newUser)
+    let {name, imageUrl, address, price, description} = req.body
+    const newProperty = await Property.create({
+      name,
+      imageUrl,
+      address,
+      price,
+      description
+    })
+    res.json(newProperty)
   } catch (error) {
     next(error)
   }
@@ -42,7 +43,7 @@ router.post('/', async (req, res, next) => {
 
 router.delete('/:id', async (req, res, next) => {
   try {
-    await User.destroy({
+    await Property.destroy({
       where: {
         id: req.params.id
       }
@@ -55,9 +56,9 @@ router.delete('/:id', async (req, res, next) => {
 
 router.put('/:id', async (req, res, next) => {
   try {
-    const user = await User.findByPk(req.params.id)
-    await user.update(req.body)
-    res.json(user)
+    const property = await Property.findByPk(req.params.id)
+    await property.update(req.body)
+    res.json(property)
   } catch (error) {
     next(error)
   }
