@@ -8,21 +8,25 @@ const properties = [
     name: 'Apple Orchard Estate',
     imageUrl: 'https://robbreport.com/wp-content/uploads/2018/10/pumpkin-1.jpg',
     address: '1234 Gala Lane',
-    price: 1000000
+    price: 1000000,
+    description: 'Come for the cider, stay for the apple bottom jeans!'
   },
   {
     name: 'Haunted Mansion',
     imageUrl:
       'https://bigseventravel.com/wp-content/uploads/2019/10/Franklin-Caste-Most-Haunted-House-in-Ohio.jpg',
     address: '567 Wayward Way',
-    price: 100000
+    price: 100000,
+    description: 'The kitchen backsplash is to-die-for!'
   },
   {
     name: 'Joneses Ski Chalet',
     imageUrl:
       'https://www.skiinluxury.com/blog/wp-content/uploads/2018/10/chalets_exterieurs1_hd-e1539344596992.jpg',
     address: '89 Black Diamond Boulevard',
-    price: 5000000
+    price: 5000000,
+    description:
+      "Ever get stuck under the ski lift? Here it's a major attraction!"
   }
 ]
 

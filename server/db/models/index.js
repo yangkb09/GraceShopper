@@ -1,4 +1,5 @@
 const User = require('./user')
+const Order = require('./order')
 const Property = require('./property')
 
 /**
@@ -8,9 +9,15 @@ const Property = require('./property')
  *    BlogPost.belongsTo(User)
  */
 
-//User-Property Association
-User.belongsToMany(Property, {through: 'property-user'})
-Property.hasOne(User)
+//User-Order-Property Association
+// User.belongsToMany(Property, {through: 'property-user'})
+// Property.hasOne(User)
+
+Order.belongsTo(User)
+User.hasMany(Order)
+
+Property.belongsTo(Order)
+Order.hasMany(Property)
 
 /**
  * We'll export all of our models here, so that any time a module needs a model,
@@ -20,5 +27,6 @@ Property.hasOne(User)
  */
 module.exports = {
   User,
+  Order,
   Property
 }
