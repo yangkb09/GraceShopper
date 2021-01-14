@@ -17,7 +17,7 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   try {
     const property = await Property.findByPk(req.params.id, {
-      include: ['name', 'imageUrl', 'address', 'price', 'description']
+      attributes: ['name', 'imageUrl', 'address', 'price', 'description']
     })
     res.json(property)
   } catch (error) {
