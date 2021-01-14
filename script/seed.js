@@ -9,6 +9,7 @@ const properties = [
     imageUrl: 'https://robbreport.com/wp-content/uploads/2018/10/pumpkin-1.jpg',
     address: '1234 Gala Lane',
     price: 1000000,
+
     description: 'Come for the cider, stay for the apple bottom jeans!'
   },
   {
