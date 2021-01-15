@@ -11,15 +11,7 @@ router.get('/', async (req, res, next) => {
   try {
     console.log('req.body ', req.body)
     console.log('req.params ', req.params)
-    const orders = await Property.findAll({
-      where: {
-        orderId: {
-          where: {
-            userId: user.id
-          }
-        }
-      }
-    })
+    const orders = await Property.findAll()
     res.json(orders)
   } catch (err) {
     next(err)
