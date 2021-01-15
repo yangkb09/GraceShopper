@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {_addToCart} from '../store/cart'
 import {_getProperties} from '../store/properties'
 import {Link} from 'react-router-dom'
 
@@ -51,7 +52,10 @@ export class AllProperties extends React.Component {
                   <Link to={`/properties/${property.id}`}>View Details</Link>
                   <button
                     type="button"
-                    onClick={() => this.props.addToCart(property)}
+                    onClick={() => {
+                      console.log('!!!!!!!')
+                      this.props.addToCart(property.id)
+                    }}
                   >
                     Add to Cart
                   </button>
@@ -79,8 +83,8 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
-    getProperties: () => dispatch(_getProperties())
-    // addToCart: (property) => dispatch(property))
+    getProperties: () => dispatch(_getProperties()),
+    addToCart: id => dispatch(_addToCart(id))
   }
 }
 
