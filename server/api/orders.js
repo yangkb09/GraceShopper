@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const {Order} = require('../db/models/order')
-const {Property} = require('../db/models/property')
+const {Property} = require('../db/models')
 
 module.exports = router
 
@@ -8,8 +8,9 @@ const isAdmin = (req, res, next) =>
   req.user.isAdmin ? next() : res.send('Access Denied.')
 
 router.get('/', async (req, res, next) => {
-  console.log(req.body)
   try {
+    console.log('req.body ', req.body)
+    console.log('req.params ', req.params)
     const orders = await Property.findAll({
       where: {
         orderId: {
