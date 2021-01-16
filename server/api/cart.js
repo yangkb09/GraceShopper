@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {Order} = require('../db/models/order')
+const {Cart} = require('../db/models')
 const {Property} = require('../db/models')
 
 module.exports = router
