@@ -9,7 +9,7 @@ export const addToCart = property => ({
 
 export const _addToCart = property => async dispatch => {
   try {
-    const cart = await axios.post('/api/orders', property)
+    const cart = await axios.post('/api/carts', property)
     dispatch(addToCart(cart.data))
   } catch (error) {
     console.log('could not add to cart!', error)

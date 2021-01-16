@@ -12,24 +12,34 @@ export class Cart extends React.Component {
   // }
 
   render() {
-    // console.log(this.props.property)
-    // if (!this.props.property) {
-    //   return <div>Loading...</div>
-    // }
-
-    return <div>Hello World - it's me, cart!</div>
+    return (
+      <div>
+        <h3>
+          {this.props.user.properties &&
+            this.props.user.properties.map(property => {
+              return (
+                <div key={property.id}>
+                  <Link key={property.id} to={`/properties/${property.id}`}>
+                    {property.name}
+                  </Link>
+                  <button type="button">Delete</button>
+                </div>
+              )
+            })}
+        </h3>
+      </div>
+    )
   }
 }
 
-// const mapState = state => {
-//   return {
-//     property: state.property
-//   }
-// }
+const mapState = state => {
+  return {
+    property: state.property
+  }
+}
 
-// const mapDispatch = dispatch => ({
-//   loadSingleProperty: id => dispatch(fetchSingleProperty(id))
-// })
+const mapDispatch = dispatch => ({
+  getUser: id => dispatch(_getUser(id))
+})
 
-// export default connect(mapState, mapDispatch)(SingleProperty)
-export default connect(null, null)(Cart)
+export default connect(mapState, mapDispatch)(Cart)
