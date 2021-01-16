@@ -40,11 +40,14 @@ async function seed() {
     User.create({email: 'murphy@email.com', password: '123'})
   ])
 
-  await Promise.all(
+  const newProperties = await Promise.all(
     properties.map(property => {
       return Property.create(property)
     })
   )
+
+  await users[0].addProperties(newProperties[0])
+  await users[0].addProperties(newProperties[1])
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded ${properties.length} properties`)
