@@ -30,6 +30,15 @@ export const me = () => async dispatch => {
   }
 }
 
+export const _getUser = id => async dispatch => {
+  try {
+    const {data} = await axios.get(`/api/users/${id}`)
+    dispatch(getUser(data))
+  } catch (err) {
+    console.log(err)
+  }
+}
+
 export const auth = (email, password, method) => async dispatch => {
   let res
   try {

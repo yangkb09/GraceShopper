@@ -53,7 +53,6 @@ export class AllProperties extends React.Component {
                   <button
                     type="button"
                     onClick={() => {
-                      console.log('!!!!!!!')
                       this.props.addToCart(property.id)
                     }}
                   >

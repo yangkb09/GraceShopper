@@ -1,17 +1,17 @@
 import axios from 'axios'
 const SET_PROPERTIES = 'SET_PROPERTIES'
 
-export const setProperties = (properties) => ({
+export const setProperties = properties => ({
   type: SET_PROPERTIES,
-  properties,
+  properties
 })
 
-export const _getProperties = () => async (dispatch) => {
+export const _getProperties = () => async dispatch => {
   try {
     const properties = await axios.get('/api/properties')
     dispatch(setProperties(properties.data))
   } catch (error) {
-    console.log('Could Not Get Properties!', error)
+    console.log('Could not get properties!', error)
   }
 }
 
