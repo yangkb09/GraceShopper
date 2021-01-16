@@ -5,10 +5,12 @@ import _getUser from '../store/user'
 
 export class Cart extends React.Component {
   componentDidMount() {
+    console.log('at componentDidMount')
     this.props.getUser(this.props.match.params.id)
   }
 
   render() {
+    console.log('at render')
     const cartItems = this.props.user.properties || []
     console.log('this.props:', this.props)
     console.log('cartItems', cartItems)
@@ -37,12 +39,14 @@ export class Cart extends React.Component {
 }
 
 const mapState = state => {
+  console.log('at mapState')
   return {
     user: state.user
   }
 }
 
 const mapDispatch = dispatch => {
+  console.log('at mapDispatch')
   return {
     getUser: id => dispatch(_getUser(id))
   }
