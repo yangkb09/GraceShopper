@@ -1,60 +1,66 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import _getUser from '../store/user'
+// import _getUser from '../store/user'
+import {_getUserCart} from '../store/cart'
+
+import {me} from '../store/user'
+
+//The idea is to use the thunk that brings in the data from the auth form to the user-component, and have it come to this component as well.
+
+//right now it works as you navigate (to Home,to Properties, to Cart), and only stops working if you hard reload.
+
+//But it is on state now, and if you can map that state to the props we just might have it.
 
 export class Cart extends React.Component {
   componentDidMount() {
-    // this.props.getUser(this.props.match.params.id)
-    console.log('component mounting')
+    console.log('component mounting! is user in the props???', this.props)
+
+    this.props.getUserCart(this.props.user.id)
+    //getUserCart does not work yet because user.id is not yet on props, but IT WILL BE!!! I BELIEVE IN YOU
+    this.props.loadInitialData()
+    //I stole loadInitialData from routes.js, because it was dispatching the "me" thunk, which was correctly getting the information through auth-form.js.
   }
 
   render() {
     const cartItems = this.props.user.properties || []
-    console.log('this.props:', this.props)
     console.log('cartItems', cartItems)
-
-    const friendlyHello = (
-      <div>
-        <p>Hello, I'm the cart!</p>
-      </div>
-    )
 
     if (!this.props.user) {
       return <div>Loading...</div>
     }
 
-    if (cartItems.length > 1) return friendlyHello
-    else
-      return (
-        <div>
-          <h3>
-            {cartItems.map(property => {
-              return (
-                <div key={property.id}>
-                  <Link key={property.id} to={`/properties/${property.id}`}>
-                    {property.name}
-                  </Link>
-                  <button type="button">Delete</button>
-                </div>
-              )
-            })}
-          </h3>
-        </div>
-      )
+    return (
+      <div>
+        <h3>
+          {cartItems.map(property => {
+            return (
+              <div key={property.id}>
+                <Link key={property.id} to={`/properties/${property.id}`}>
+                  {property.name}
+                </Link>
+                <button type="button">Delete</button>
+              </div>
+            )
+          })}
+        </h3>
+      </div>
+    )
   }
 }
 
 const mapState = state => {
   return {
-    user: state.user
+    user: state.user,
+    isLoggedIn: !!state.user.id
   }
 }
 
-// const mapDispatch = dispatch => {
-//   return {
-//     getUser: id => dispatch(_getUser(id))
-//   }
-// }
+const mapDispatch = dispatch => {
+  return {
+    getUserCart: id => dispatch(_getUserCart(id)),
+    loadInitialData: () => dispatch(me())
+  }
+}
 
-export default connect(mapState, null)(Cart)
+export default connect(mapState, mapDispatch)(Cart)

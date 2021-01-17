@@ -8,6 +8,7 @@ import {auth} from '../store/user'
  */
 const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
+  console.log('props @ authform', props)
 
   return (
     <div>
@@ -42,6 +43,7 @@ const AuthForm = props => {
  *   can stay DRY with interfaces that are very similar to each other!
  */
 const mapLogin = state => {
+  //mapStateToProps
   return {
     name: 'login',
     displayName: 'Login',
@@ -50,6 +52,7 @@ const mapLogin = state => {
 }
 
 const mapSignup = state => {
+  //mapStateToProps
   return {
     name: 'signup',
     displayName: 'Sign Up',
@@ -58,6 +61,7 @@ const mapSignup = state => {
 }
 
 const mapDispatch = dispatch => {
+  //mapDispatchToProps
   return {
     handleSubmit(evt) {
       evt.preventDefault()
@@ -75,6 +79,7 @@ export const Signup = connect(mapSignup, mapDispatch)(AuthForm)
 /**
  * PROP TYPES
  */
+//This is a safety check to make sure you put in the right kind of property into the value. ex. name: must be a string, not an integer.
 AuthForm.propTypes = {
   name: PropTypes.string.isRequired,
   displayName: PropTypes.string.isRequired,
