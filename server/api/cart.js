@@ -31,3 +31,8 @@ router.put('/:id/:propertyId', async (req, res, next) => {
     next(error)
   }
 })
+
+//to try this route seed your database - refresh localhost
+// - send a put request in postman with http://localhost:8080/api/cart/1/1
+// refresh the localhost again in the browser and one of the properties
+// will no longer be seen

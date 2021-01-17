@@ -15,7 +15,6 @@ import {me} from '../store/user'
 export class Cart extends React.Component {
   componentDidMount() {
     this.props.loadInitialData()
-    //NOTE FROM KAT/JAMIE: loadInitialData() gives us a 500 err, leaving commented out
     //I stole loadInitialData from routes.js, because it was dispatching the "me" thunk, which was correctly getting the information through auth-form.js.
   }
 

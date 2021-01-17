@@ -25,7 +25,7 @@ export const _addToCart = property => async dispatch => {
 export const _getUserCart = id => async dispatch => {
   try {
     const {data} = await axios.get(`/api/cart/${id}`)
-    //so here I'm trying to find the user whose cart this is. I'm hoping to find it like this ^^^ but SAFEWORD: PICKLES
+    //edited and now it works !!
     console.log('_getUserCart data', data)
     dispatch(setUserCart(data.properties))
   } catch (error) {
