@@ -22,15 +22,12 @@ export const _addToCart = property => async dispatch => {
   }
 }
 
-export const _getUserCart = user => async dispatch => {
+export const _getUserCart = id => async dispatch => {
   try {
-    const loggedInGuy = await axios.get('/api/users', {
-      where: {
-        userId: user.id
-      }
-    })
+    const {data} = await axios.get(`/api/cart/${id}`)
+    console.log('_getUserCart data', data)
     //so here I'm trying to find the user whose cart this is. I'm hoping to find it like this ^^^ but SAFEWORD: PICKLES
-    dispatch(getUserCart(loggedInGuy.data))
+    dispatch(getUserCart(data))
   } catch (error) {
     console.log('Could not find your cart!', error)
   }

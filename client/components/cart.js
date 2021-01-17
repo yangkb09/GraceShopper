@@ -16,13 +16,15 @@ export class Cart extends React.Component {
   componentDidMount() {
     console.log('component mounting! is user in the props???', this.props)
 
-    this.props.getUserCart(this.props.user.id)
+    this.props.getUserCart(this.props.userId)
     //getUserCart does not work yet because user.id is not yet on props, but IT WILL BE!!! I BELIEVE IN YOU
-    this.props.loadInitialData()
+    // this.props.loadInitialData()
+    //NOTE FROM KAT/JAMIE: loadInitialData() gives us a 500 err, leaving commented out
     //I stole loadInitialData from routes.js, because it was dispatching the "me" thunk, which was correctly getting the information through auth-form.js.
   }
 
   render() {
+    console.log('!!!!!this.props from Cart component', this.props)
     const cartItems = this.props.user.properties || []
     console.log('cartItems', cartItems)
 
@@ -50,8 +52,10 @@ export class Cart extends React.Component {
 }
 
 const mapState = state => {
+  console.log('CART COMPONENT state', state)
   return {
     user: state.user,
+    userId: state.user.id,
     isLoggedIn: !!state.user.id
   }
 }
