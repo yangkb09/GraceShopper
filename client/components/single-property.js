@@ -13,7 +13,6 @@ class SingleProperty extends React.Component {
   }
 
   render() {
-    console.log(this.props.property)
     if (!this.props.property) {
       return <div>Loading...</div>
     }

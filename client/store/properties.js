@@ -11,7 +11,7 @@ export const _getProperties = () => async dispatch => {
     const properties = await axios.get('/api/properties')
     dispatch(setProperties(properties.data))
   } catch (error) {
-    console.log('Could not get properties!', error)
+    console.log('No properties found.', error)
   }
 }
 

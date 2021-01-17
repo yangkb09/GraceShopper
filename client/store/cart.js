@@ -18,7 +18,7 @@ export const _addToCart = property => async dispatch => {
     const cart = await axios.post('/api/carts', property)
     dispatch(addToCart(cart.data))
   } catch (error) {
-    console.log('Could not add to cart!', error)
+    console.log('Could not add to cart.', error)
   }
 }
 
@@ -29,7 +29,7 @@ export const _getUserCart = id => async dispatch => {
     console.log('_getUserCart data', data)
     dispatch(setUserCart(data.properties))
   } catch (error) {
-    console.log('Could not find your cart!', error)
+    console.log('No cart found.', error)
   }
 }
 
