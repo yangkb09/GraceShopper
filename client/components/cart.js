@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 // import _getUser from '../store/user'
-import {_getUserCart} from '../store/cart'
+import {_getUserCart, _removeFromCart} from '../store/cart'
 
 import {me} from '../store/user'
 
@@ -22,6 +22,10 @@ export class Cart extends React.Component {
     if (this.props.cart.length === 0 && this.props.userId) {
       this.props.getUserCart(this.props.userId)
     }
+    const cartItems = this.props.cart || []
+    if (cartItems.length === 0) {
+      return <div>Your cart is currently empty!</div>
+    }
   }
 
   render() {
@@ -30,7 +34,13 @@ export class Cart extends React.Component {
     if (!this.props.user) {
       return <div>Loading...</div>
     }
-
+    // if (cartItems.length === 0) {
+    //   return (
+    //     <div>
+    //       Your cart is currently empty!
+    //     </div>
+    //   )
+    // } else {
     return (
       <div>
         <div>
@@ -46,17 +56,25 @@ export class Cart extends React.Component {
                 </div>
 
                 <div>Price: {property.price}</div>
-                <button type="button">Delete</button>
+                <button
+                  type="button"
+                  onClick={() =>
+                    this.props.removeFromCart(this.props.user, property.id)
+                  }
+                >
+                  Delete
+                </button>
               </div>
             )
           })}
         </div>
-        <div>Total:</div>
+        <div>Total: </div>
         <button type="submit">Checkout</button>
       </div>
     )
   }
 }
+// }
 
 const mapState = state => {
   return {
@@ -70,7 +88,9 @@ const mapState = state => {
 const mapDispatch = dispatch => {
   return {
     getUserCart: id => dispatch(_getUserCart(id)),
-    loadInitialData: () => dispatch(me())
+    loadInitialData: () => dispatch(me()),
+    removeFromCart: (user, propertyId) =>
+      dispatch(_removeFromCart(user, propertyId))
   }
 }
 
