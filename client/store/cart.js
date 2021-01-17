@@ -8,9 +8,9 @@ export const addToCart = property => ({
   property
 })
 
-export const getUserCart = user => ({
+export const setUserCart = properties => ({
   type: GET_USER_CART,
-  user
+  properties
 })
 
 export const _addToCart = property => async dispatch => {
@@ -25,9 +25,9 @@ export const _addToCart = property => async dispatch => {
 export const _getUserCart = id => async dispatch => {
   try {
     const {data} = await axios.get(`/api/cart/${id}`)
-    console.log('_getUserCart data', data)
     //so here I'm trying to find the user whose cart this is. I'm hoping to find it like this ^^^ but SAFEWORD: PICKLES
-    dispatch(getUserCart(data))
+    console.log('_getUserCart data', data)
+    dispatch(setUserCart(data.properties))
   } catch (error) {
     console.log('Could not find your cart!', error)
   }
@@ -39,7 +39,7 @@ const cartReducer = (state = initialState, action) => {
     case ADD_TO_CART:
       return [...state, action.property]
     case GET_USER_CART:
-      return [...state, action.user]
+      return action.properties
     default:
       return state
   }
