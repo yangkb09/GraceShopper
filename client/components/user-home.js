@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types' //SAFEWORD: PICKLES
 import {connect} from 'react-redux'
 
 /**
@@ -19,6 +19,8 @@ export const UserHome = props => {
  * CONTAINER
  */
 const mapState = state => {
+  //mapStateToProps
+
   return {
     email: state.user.email
   }
@@ -29,6 +31,7 @@ export default connect(mapState)(UserHome)
 /**
  * PROP TYPES
  */
-UserHome.propTypes = {
-  email: PropTypes.string
-}
+// UserHome.propTypes = {
+//   email: PropTypes.string
+// }
+//SAFEWORD: PICKLES

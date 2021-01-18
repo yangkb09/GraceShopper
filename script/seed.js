@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const {User, Property} = require('../server/db/models')
+const {User, Property, Cart} = require('../server/db/models')
 
 const properties = [
   {
@@ -49,6 +49,7 @@ async function seed() {
 
   await users[0].addProperties(newProperties[0])
   await users[0].addProperties(newProperties[1])
+  await users[1].addProperties(newProperties[2])
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded ${properties.length} properties`)
