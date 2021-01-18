@@ -10,5 +10,3 @@ export {default as AllProperties} from './all-properties'
 export {default as SinglePropery} from './single-property'
 export {default as Cart} from './cart'
 export {default as AllUsers} from './all-users'
-
-export {default as Cart} from './cart'

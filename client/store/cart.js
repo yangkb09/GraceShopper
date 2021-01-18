@@ -21,23 +21,13 @@ export const removeFromCart = propertyId => ({
 
 export const _addToCart = (property, user) => async dispatch => {
   try {
-    const cart = await axios.update(`/api/cart/${user.id}`, property)
-
-    dispatch(addToCart(cart.data))
+    const cart = await axios.post(`/api/cart/${user.id}`, property)
+    console.log('cart@store', cart)
+    dispatch(addToCart(cart.config.data))
   } catch (error) {
     console.log('Could not add to cart.', error)
   }
 }
-
-// router.put('/:robotId', async (req, res, next) => {
-//   try {
-//     const robot = await Robot.findByPk(req.params.robotId)
-//     await robot.update(req.body)
-//     res.send(robot)
-//   } catch (error) {
-//     next(error)
-//   }
-// })
 
 export const _getUserCart = id => async dispatch => {
   try {

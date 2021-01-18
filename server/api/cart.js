@@ -8,12 +8,26 @@ const isAdmin = (req, res, next) =>
 
 router.get('/:id', async (req, res, next) => {
   try {
-    const cart = await User.findByPk(req.params.id, {
-      include: [{model: Property}]
-    })
-    res.json(cart)
+    // const cart = await User.findByPk(req.params.id, {
+    //   include: [{model: Property}]
+    // })
+    // res.json(cart)
   } catch (err) {
     next(err)
+  }
+})
+
+router.post('/:id', async (req, res, next) => {
+  try {
+    const thisUser = await User.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+    console.log('config@cart', thisUser.config)
+    res.json(thisUser)
+  } catch (error) {
+    next(error)
   }
 })
 
@@ -26,23 +40,6 @@ router.put('/:id/:propertyId', async (req, res, next) => {
       req.params.propertyId
     )
     res.json({numOfPropertiesRemoved})
-  } catch (error) {
-    next(error)
-  }
-})
-
-router.put('/:userId', async (req, res, next) => {
-  try {
-    console.log('req', req)
-
-    // await user.addProperties(newProperties[0])
-
-    // let cartItem = await User.findByPk(req.params.userId, {
-    //   include: [{model: Property}]
-    // })
-    // let propertiesAdded = await user.addProperties(cartItem)
-    // res.json(cartItem)
-    // await users[0].addProperties(newProperties[0])
   } catch (error) {
     next(error)
   }

@@ -16,7 +16,7 @@ const Property = require('./property')
 // Cart.belongsTo(User)
 // User.hasMany(Cart)
 
-User.belongsToMany(Property, {through: Cart})
+User.belongsToMany(Property, {through: Cart, associations: true})
 
 // Property.belongsTo(User, {through: Cart}) // Cart.hasMany(Property)
 
