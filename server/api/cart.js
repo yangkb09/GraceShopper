@@ -22,11 +22,10 @@ router.put('/:id/:propertyId', async (req, res, next) => {
     let user = await User.findByPk(req.params.id, {
       include: [{model: Property}]
     })
-    let newCart = await user.removeProperties(
-      user.dataValues.properties[req.params.propertyId]
+    let numOfPropertiesRemoved = await user.removeProperties(
+      req.params.propertyId
     )
-    user.dataValues.properties = newCart
-    res.json(user.dataValues.properties)
+    res.json({numOfPropertiesRemoved})
   } catch (error) {
     next(error)
   }

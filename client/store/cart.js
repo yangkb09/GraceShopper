@@ -14,9 +14,9 @@ export const setUserCart = properties => ({
   properties
 })
 
-export const removeFromCart = property => ({
+export const removeFromCart = propertyId => ({
   type: REMOVE_FROM_CART,
-  property
+  propertyId
 })
 
 export const _addToCart = property => async dispatch => {
@@ -47,7 +47,8 @@ export const _removeFromCart = (user, propertyId) => async dispatch => {
   console.log('userData.data ', userData.data)
   const {data} = await axios.put(`/api/cart/${user.id}/${propertyId}`, user)
   console.log('DATA FROM REMOVEFROMCART: ', data)
-  dispatch(removeFromCart(userData.data.properties[propertyId - 1]))
+  console.log('this is undef: ', userData.data.properties[propertyId])
+  dispatch(removeFromCart(propertyId))
   // } catch (err) {
   //   console.log(err)
   // }
@@ -62,7 +63,7 @@ const cartReducer = (state = initialState, action) => {
     case GET_USER_CART:
       return action.properties
     case REMOVE_FROM_CART:
-      return state.filter(property => property.id !== action.property.id)
+      return state.filter(property => property.id !== action.propertyId)
     default:
       return state
   }

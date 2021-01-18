@@ -18,13 +18,9 @@ export class Cart extends React.Component {
     //I stole loadInitialData from routes.js, because it was dispatching the "me" thunk, which was correctly getting the information through auth-form.js.
   }
 
-  componentDidUpdate() {
-    if (this.props.cart.length === 0 && this.props.userId) {
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.userId && prevProps.userId !== this.props.userId) {
       this.props.getUserCart(this.props.userId)
-    }
-    const cartItems = this.props.cart || []
-    if (cartItems.length === 0) {
-      return <div>Your cart is currently empty!</div>
     }
   }
 
@@ -34,13 +30,11 @@ export class Cart extends React.Component {
     if (!this.props.user) {
       return <div>Loading...</div>
     }
-    // if (cartItems.length === 0) {
-    //   return (
-    //     <div>
-    //       Your cart is currently empty!
-    //     </div>
-    //   )
-    // } else {
+
+    if (cartItems.length === 0) {
+      return <div>Your cart is currently empty!</div>
+    }
+
     return (
       <div>
         <div>
