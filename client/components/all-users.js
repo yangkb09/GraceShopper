@@ -15,7 +15,8 @@ export class AllUsers extends React.Component {
             return (
               <div key={user.id}>
                 <div>
-                  Name: {user.name}
+                  ID: {user.id}
+                  <p>&nbsp;</p>
                   Email: {user.email}
                 </div>
               </div>
