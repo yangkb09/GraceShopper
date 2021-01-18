@@ -6,7 +6,6 @@ import {
   AllProperties,
   Login,
   Signup,
-  UserHome,
   SinglePropery,
   AllUsers
 } from './components'
