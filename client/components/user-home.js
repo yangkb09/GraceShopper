@@ -7,7 +7,6 @@ import {connect} from 'react-redux'
  */
 export const UserHome = props => {
   const {email} = props
-  console.log('props@UserHome', props) //gets the email as props
 
   return (
     <div>
@@ -21,10 +20,7 @@ export const UserHome = props => {
  */
 const mapState = state => {
   //mapStateToProps
-  console.log("this is the state I'm getting!", state)
-  console.log(
-    'mapping state to props @ user-home, returning email: state.user.email'
-  )
+
   return {
     email: state.user.email
   }

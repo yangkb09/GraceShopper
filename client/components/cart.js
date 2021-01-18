@@ -15,6 +15,7 @@ import {me} from '../store/user'
 export class Cart extends React.Component {
   componentDidMount() {
     this.props.loadInitialData()
+    console.log('@cart CDM', this.props)
     //I stole loadInitialData from routes.js, because it was dispatching the "me" thunk, which was correctly getting the information through auth-form.js.
   }
 

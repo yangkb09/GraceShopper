@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {User, Property} = require('../db/models')
+const {User, Property, Cart} = require('../db/models')
 
 module.exports = router
 
@@ -26,6 +26,23 @@ router.put('/:id/:propertyId', async (req, res, next) => {
       req.params.propertyId
     )
     res.json({numOfPropertiesRemoved})
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.put('/:userId', async (req, res, next) => {
+  try {
+    console.log('req', req)
+
+    // await user.addProperties(newProperties[0])
+
+    // let cartItem = await User.findByPk(req.params.userId, {
+    //   include: [{model: Property}]
+    // })
+    // let propertiesAdded = await user.addProperties(cartItem)
+    // res.json(cartItem)
+    // await users[0].addProperties(newProperties[0])
   } catch (error) {
     next(error)
   }

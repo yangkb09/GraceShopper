@@ -8,7 +8,6 @@ import {auth} from '../store/user'
  */
 const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
-  console.log('props @ authform', props)
 
   return (
     <div>

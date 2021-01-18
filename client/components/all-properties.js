@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {_addToCart} from '../store/cart'
 import {_getProperties} from '../store/properties'
 import {Link} from 'react-router-dom'
+import {me} from '../store/user'
 
 // Notice that we're exporting the Allproperties component twice. The named export
 // (below) is not connected to Redux, while the default export (at the very
@@ -35,6 +36,7 @@ import {Link} from 'react-router-dom'
 export class AllProperties extends React.Component {
   componentDidMount() {
     this.props.getProperties()
+    console.log('AllProperties props', this.props)
   }
 
   render() {
@@ -53,7 +55,7 @@ export class AllProperties extends React.Component {
                   <button
                     type="button"
                     onClick={() => {
-                      this.props.addToCart(property.id)
+                      this.props.addToCart(property, this.props.user)
                     }}
                   >
                     Add to Cart
@@ -76,14 +78,15 @@ export class AllProperties extends React.Component {
 
 const mapState = state => {
   return {
-    properties: state.properties
+    properties: state.properties,
+    user: state.user
   }
 }
 
 const mapDispatch = dispatch => {
   return {
     getProperties: () => dispatch(_getProperties()),
-    addToCart: id => dispatch(_addToCart(id))
+    addToCart: (property, user) => dispatch(_addToCart(property, user))
   }
 }
 
