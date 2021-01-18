@@ -30,10 +30,9 @@ class Routes extends Component {
         <Route path="/signup" component={Signup} />
         <Route exact path="/properties" component={AllProperties} />
         <Route exact path="/properties/:id" component={SinglePropery} />
-
         {/* For testing purposes, make admin route available to all visitors */}
+        ()
         <Route path="/admin" component={AllUsers} />
-
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
@@ -58,7 +57,7 @@ const mapState = state => {
 
     //For now, make user 0 the administrator.
     //(!!(state.user.id === 0))
-    isAdmin: !!(state.user.id === 0)
+    isAdmin: !!(state.user.id === 1)
   }
 }
 
