@@ -3,12 +3,8 @@ import {connect} from 'react-redux'
 import {_getUsers} from '../store/users'
 
 export class AllUsers extends React.Component {
-  constructor() {
-    super()
-  }
   componentDidMount() {
     this.props.getUsers()
-    console.log("here's the props", this.props)
   }
 
   render() {

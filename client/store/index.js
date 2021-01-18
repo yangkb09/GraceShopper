@@ -15,6 +15,7 @@ export const reducer = combineReducers({
   property: property,
   users: users
 })
+
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )
