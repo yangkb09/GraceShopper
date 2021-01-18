@@ -8,7 +8,8 @@ import {
   Signup,
   UserHome,
   SinglePropery,
-  Cart
+  Cart,
+  AllUsers
 } from './components'
 import {me} from './store/user'
 
@@ -21,7 +22,7 @@ class Routes extends Component {
   }
 
   render() {
-    const {isLoggedIn} = this.props
+    const {isLoggedIn, isAdmin} = this.props
 
     return (
       <Switch>
@@ -53,7 +54,11 @@ const mapState = state => {
   return {
     // Being 'logged in' for our purposes will be defined has having a state.user that has a truthy id.
     // Otherwise, state.user will be an empty object, and state.user.id will be falsey
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+
+    //For now, make user 0 the administrator.
+    //(!!(state.user.id === 0))
+    isAdmin: !!(state.user.id === 1)
   }
 }
 
@@ -72,5 +77,6 @@ export default withRouter(connect(mapState, mapDispatch)(Routes))
  */
 Routes.propTypes = {
   loadInitialData: PropTypes.func.isRequired,
-  isLoggedIn: PropTypes.bool.isRequired
+  isLoggedIn: PropTypes.bool.isRequired,
+  isAdmin: PropTypes.bool.isRequired
 }
