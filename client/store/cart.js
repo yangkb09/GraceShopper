@@ -32,6 +32,7 @@ export const _addToCart = (userId, property) => async dispatch => {
 export const _getUserCart = id => async dispatch => {
   try {
     const {data} = await axios.get(`/api/cart/${id}`)
+
     dispatch(setUserCart(data.properties))
   } catch (error) {
     console.log('No cart found.', error)

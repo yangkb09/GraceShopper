@@ -14,7 +14,14 @@ export class AllProperties extends React.Component {
   }
 
   render() {
-    console.log('ALL PROPERTIES', this.props.properties)
+    //SAFEWORD: FALAFEL
+    const checkForUserCart = (id, property) => {
+      if (this.props.user.id) {
+        this.props.addToCart(this.props.user.id, property)
+      } else {
+        alert('Please make an account first!')
+      }
+    }
 
     if (this.props.properties.length > 0) {
       return (
@@ -33,7 +40,7 @@ export class AllProperties extends React.Component {
                     <button
                       type="button"
                       onClick={() => {
-                        this.props.addToCart(this.props.user.id, property)
+                        checkForUserCart(this.props.user.id, property)
                       }}
                     >
                       Add to Cart
