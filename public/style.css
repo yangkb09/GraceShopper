@@ -19,3 +19,8 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+#landing-page {
+  width: 100%;
+  height: 100%;
+}

@@ -7,7 +7,14 @@ import React from 'react'
 export const LandingPage = () => {
   return (
     <div>
-      <img src="https://findinghomesinhenderson.com/wp-content/uploads/sites/47/2015/08/112.jpg" />
+      <h2>
+        Welcome to Virtual Realty, where we will help you find your ideal
+        getaway.
+      </h2>
+      <img
+        id="landing-page"
+        src="https://findinghomesinhenderson.com/wp-content/uploads/sites/47/2015/08/112.jpg"
+      />
     </div>
   )
 }
