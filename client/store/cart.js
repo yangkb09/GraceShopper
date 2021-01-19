@@ -3,6 +3,7 @@ import axios from 'axios'
 const ADD_TO_CART = 'ADD_TO_CART'
 const GET_USER_CART = 'GET_USER_CART'
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
+const CART_CHECKOUT = 'CART_CHECKOUT'
 
 export const addToCart = property => ({
   type: ADD_TO_CART,
@@ -19,10 +20,10 @@ export const removeFromCart = propertyId => ({
   propertyId
 })
 
-export const _addToCart = property => async dispatch => {
+export const _addToCart = (userId, property) => async dispatch => {
   try {
-    const cart = await axios.post('/api/carts', property)
-    dispatch(addToCart(cart.data))
+    const cart = await axios.post(`/api/cart/${userId}/${property.id}`)
+    dispatch(addToCart(property))
   } catch (error) {
     console.log('Could not add to cart.', error)
   }
@@ -31,27 +32,29 @@ export const _addToCart = property => async dispatch => {
 export const _getUserCart = id => async dispatch => {
   try {
     const {data} = await axios.get(`/api/cart/${id}`)
-    //edited and now it works !!
-    console.log('_getUserCart data', data)
     dispatch(setUserCart(data.properties))
   } catch (error) {
     console.log('No cart found.', error)
   }
 }
 
+export const _cartCheckout = userId => async dispatch => {
+  try {
+    await axios.put(`/api/cart/${userId}/checkout`)
+    dispatch(_getUserCart(userId))
+  } catch (error) {
+    console.log('Could not checkout. Try again later.', error)
+  }
+}
+
 export const _removeFromCart = (user, propertyId) => async dispatch => {
-  // try {
-  console.log('_removeFromCart user arg: ', user)
-  console.log('_removeFromCart propertyId arg: ', propertyId)
-  const userData = await axios.get(`/api/cart/${user.id}`)
-  console.log('userData.data ', userData.data)
-  const {data} = await axios.put(`/api/cart/${user.id}/${propertyId}`, user)
-  console.log('DATA FROM REMOVEFROMCART: ', data)
-  console.log('this is undef: ', userData.data.properties[propertyId])
-  dispatch(removeFromCart(propertyId))
-  // } catch (err) {
-  //   console.log(err)
-  // }
+  try {
+    const userData = await axios.get(`/api/cart/${user.id}`)
+    const {data} = await axios.put(`/api/cart/${user.id}/${propertyId}`, user)
+    dispatch(removeFromCart(propertyId))
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 const initialState = []

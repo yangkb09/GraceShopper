@@ -1,5 +1,6 @@
 import axios from 'axios'
 import history from '../history'
+import {_getUserCart} from './cart'
 
 /**
  * ACTION TYPES
@@ -24,7 +25,9 @@ const removeUser = () => ({type: REMOVE_USER})
 export const me = () => async dispatch => {
   try {
     const res = await axios.get('/auth/me') //authorization happens first! but where is /auth/me?
-    dispatch(getUser(res.data || defaultUser)) //if it exists at /auth/me, we'll get it. Otherwise, we won't. It will be blank.
+    const user = res.data || defaultUser
+    dispatch(getUser(user)) //if it exists at /auth/me, we'll get it. Otherwise, we won't. It will be blank.
+    dispatch(_getUserCart(user.id))
   } catch (err) {
     console.error(err)
   }

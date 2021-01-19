@@ -26,7 +26,7 @@ class SingleProperty extends React.Component {
 
         <div>Description:</div>
         <div text-align="center">{this.props.property.description}</div>
-        <button type="submit">Add to Cart</button>
+        <button type="button">Add to Cart</button>
       </div>
     )
   }

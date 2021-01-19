@@ -8,7 +8,8 @@ import {
   Signup,
   UserHome,
   SinglePropery,
-  Cart
+  Cart,
+  PastOrders
 } from './components'
 import {me} from './store/user'
 
@@ -31,12 +32,14 @@ class Routes extends Component {
         <Route exact path="/properties" component={AllProperties} />
         <Route exact path="/properties/:id" component={SinglePropery} />
         <Route exact path="/cart/:id" component={Cart} />
+        <Route exact path="/cart/:id/pastorders" component={PastOrders} />
 
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/" component={UserHome} />
             <Route exact path="/cart/:id" component={Cart} />
+            <Route exact path="/cart/:id/pastorders" component={PastOrders} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
