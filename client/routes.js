@@ -9,7 +9,8 @@ import {
   SinglePropery,
   AllUsers,
   Cart,
-  PastOrders
+  PastOrders,
+  LandingPage
 } from './components'
 import {me} from './store/user'
 
@@ -27,6 +28,9 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
+        {/* SAFEWORD: FALAFEL */}
+        <Route exact path="/" component={LandingPage} />
+        <Route path="/home" component={LandingPage} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route exact path="/properties" component={AllProperties} />
@@ -39,7 +43,6 @@ class Routes extends Component {
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-            <Route path="/" component={AllProperties} />
             <Route exact path="/cart/:id" component={Cart} />
             <Route exact path="/cart/:id/pastorders" component={PastOrders} />
           </Switch>

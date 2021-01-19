@@ -22,6 +22,16 @@ export class Cart extends React.Component {
   }
 
   render() {
+    //SAFEWORD: FALAFEL
+    const checkout = id => {
+      if (id) {
+        alert('Congratulations on your new getaway!')
+        this.props.cartCheckout(id)
+      } else {
+        alert('You cannot checkout without logging in!')
+      }
+    }
+
     const cartItems = this.props.cart || []
 
     if (!this.props.user) {
@@ -65,7 +75,7 @@ export class Cart extends React.Component {
         <button
           type="submit"
           onClick={() => {
-            this.props.cartCheckout(this.props.userId)
+            checkout(this.props.userId)
           }}
         >
           Checkout
