@@ -1,6 +1,6 @@
 # Grace Shopper
 
-Brilliant Bananas Real Estate is creating a Grace Shopper website for our client realtor to show their in-demand properties. A potential new homeowner working with the realtor will be able to view all the properties currently listed, select a single property to view, and add that property to their portfolio (cart).
+Our team here at Virtual Realty has created a website for our clients to shop in-demand properties. A potential new homeowner working with the realtor will be able to view all the properties currently listed, select a single property to view, and add that property to their portfolio (cart).
 
 ## Tools Used
 
