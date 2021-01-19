@@ -7,7 +7,9 @@ import {
   Login,
   Signup,
   SinglePropery,
-  AllUsers
+  AllUsers,
+  Cart,
+  PastOrders
 } from './components'
 import {me} from './store/user'
 
@@ -29,6 +31,8 @@ class Routes extends Component {
         <Route path="/signup" component={Signup} />
         <Route exact path="/properties" component={AllProperties} />
         <Route exact path="/properties/:id" component={SinglePropery} />
+        <Route exact path="/cart/:id" component={Cart} />
+        <Route exact path="/cart/:id/pastorders" component={PastOrders} />
         {/* For testing purposes, make admin route available to all visitors */}
         ()
         <Route path="/admin" component={AllUsers} />
@@ -36,6 +40,8 @@ class Routes extends Component {
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/" component={AllProperties} />
+            <Route exact path="/cart/:id" component={Cart} />
+            <Route exact path="/cart/:id/pastorders" component={PastOrders} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

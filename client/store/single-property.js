@@ -11,7 +11,6 @@ export const fetchSingleProperty = id => {
   return async dispatch => {
     try {
       const {data} = await axios.get(`/api/properties/${id}`)
-      console.log(data)
       dispatch(setSingleProperty(data))
     } catch (err) {
       console.log(err.message)

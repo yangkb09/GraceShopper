@@ -9,16 +9,7 @@ const Property = require('./property')
  *    BlogPost.belongsTo(User)
  */
 
-//User-Cart-Property Association
-// User.belongsToMany(Property, {through: 'property-user'})
-// Property.hasOne(User)
-
-// Cart.belongsTo(User)
-// User.hasMany(Cart)
-
 User.belongsToMany(Property, {through: Cart})
-
-// Property.belongsTo(User, {through: Cart}) // Cart.hasMany(Property)
 
 /**
  * We'll export all of our models here, so that any time a module needs a model,
