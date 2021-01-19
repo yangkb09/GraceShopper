@@ -1,75 +1,34 @@
-# Boilermaker
+# Grace Shopper
 
-_Good things come in pairs_
+Brilliant Bananas Real Estate is creating a Grace Shopper website for our client realtor to show their in-demand properties. A potential new homeowner working with the realtor will be able to view all the properties currently listed, select a single property to view, and add that property to their portfolio (cart).
 
-Looking to mix up a backend with `express`/`sequelize` and a frontend with
-`react`/`redux`? That's `boilermaker`!
+## Tools Used
 
-Follow along with the boilerplate workshop to make your own! This canonical
-version can serve as a reference, or a starting point. For an in depth
-discussion into the code that makes up this repository, see the
-[Boilermaker Guided Tour][boilermaker-yt]
+Our project uses PostgreSQL databases, Sequelize and Express in the back-end, and React/React-Redux in the front end.
 
-[boilermaker-yt]: https://www.youtube.com/playlist?list=PLx0iOsdUOUmn7D5XL4mRUftn8hvAJGs8H
+Testing is written in Mocha and Chai.
 
-## Setup
+## Get it Running
 
-To use this as boilerplate, you'll need to take the following steps:
+Follow these steps to serve the page.
 
-- Don't fork or clone this repo! Instead, create a new, empty
-  directory on your machine and `git init` (or create an empty repo on
-  Github and clone it to your local machine)
-- Run the following commands:
-
-```
-git remote add boilermaker https://github.com/FullstackAcademy/boilermaker.git
-git fetch boilermaker
-git merge boilermaker/master
-```
-
-Why did we do that? Because every once in a while, `boilermaker` may
-be updated with additional features or bug fixes, and you can easily
-get those changes from now on by entering:
-
-```
-git fetch boilermaker
-git merge boilermaker/master
-```
-
-## Customize
-
-Now that you've got the code, follow these steps to get acclimated:
-
-- Update project name and description in `package.json` and
-  `.travis.yml` files
 - `npm install`
-- Create two postgres databases (`MY_APP_NAME` should match the `name`
-  parameter in `package.json`):
 
-```
-export MY_APP_NAME=boilermaker
-createdb $MY_APP_NAME
-createdb $MY_APP_NAME-test
-```
+- Create a postgres database grace-shopper (`createdb grace-shopper`)
 
-- By default, running `npm test` will use `boilermaker-test`, while
-  regular development uses `boilermaker`
-- Create a file called `secrets.js` in the project root
-  - This file is listed in `.gitignore`, and will _only_ be required
-    in your _development_ environment
-  - Its purpose is to attach the secret environment variables that you
-    will use while developing
-  - However, it's **very** important that you **not** push it to
-    Github! Otherwise, _prying eyes_ will find your secret API keys!
-  - It might look like this:
+- run `npm run start-dev` OR run `npm run start-server` and `npm run build-client` separately.
+
+## README for our current functionality is above. What follows is README about authentication, Heroku and deployment, as given directly in our boilerplate.
+
+### Authentication
+
+- it's **very** important that you **not** push secrets.js to Github! Otherwise, _prying eyes_ will find your secret API keys!
 
 ```
 process.env.GOOGLE_CLIENT_ID = 'hush hush'
 process.env.GOOGLE_CLIENT_SECRET = 'pretty secret'
 process.env.GOOGLE_CALLBACK = '/auth/google/callback'
 ```
-
-### OAuth
 
 - To use OAuth with Google, complete the steps above with a real client
   ID and client secret supplied from Google
@@ -79,28 +38,14 @@ process.env.GOOGLE_CALLBACK = '/auth/google/callback'
 
 ## Linting
 
-Linters are fundamental to any project. They ensure that your code
-has a consistent style, which is critical to writing readable code.
+Currently, Grace Shopper is configured using Boilermaker's eslint config (
+`eslint-config-fullstack`) "out of the box."
 
-Boilermaker comes with a working linter (ESLint, with
-`eslint-config-fullstack`) "out of the box." However, everyone has
-their own style, so we recommend that you and your team work out yours
-and stick to it. Any linter rule that you object to can be "turned
-off" in `.eslintrc.json`. You may also choose an entirely different
-config if you don't like ours:
+We are excited to explore the development of our own style norms in the future.
 
 - [Standard style guide](https://standardjs.com/)
 - [Airbnb style guide](https://github.com/airbnb/javascript)
 - [Google style guide](https://google.github.io/styleguide/jsguide.html)
-
-## Start
-
-Running `npm run start-dev` will make great things happen!
-
-If you want to run the server and/or `webpack` separately, you can also
-`npm run start-server` and `npm run build-client`.
-
-From there, just follow your bliss.
 
 ## Deployment
 

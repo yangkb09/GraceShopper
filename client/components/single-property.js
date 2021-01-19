@@ -4,10 +4,6 @@ import {fetchSingleProperty} from '../store/single-property'
 import {Link} from 'react-router-dom'
 
 class SingleProperty extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
   componentDidMount() {
     try {
       this.props.loadSingleProperty(this.props.match.params.id)
@@ -17,7 +13,6 @@ class SingleProperty extends React.Component {
   }
 
   render() {
-    console.log(this.props.property)
     if (!this.props.property) {
       return <div>Loading...</div>
     }
@@ -31,7 +26,7 @@ class SingleProperty extends React.Component {
 
         <div>Description:</div>
         <div text-align="center">{this.props.property.description}</div>
-        <button type="submit">Add to Cart</button>
+        <button type="button">Add to Cart</button>
       </div>
     )
   }

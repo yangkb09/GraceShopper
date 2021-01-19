@@ -1,5 +1,6 @@
 import axios from 'axios'
 import history from '../history'
+import {_getUserCart} from './cart'
 
 /**
  * ACTION TYPES
@@ -23,10 +24,22 @@ const removeUser = () => ({type: REMOVE_USER})
  */
 export const me = () => async dispatch => {
   try {
-    const res = await axios.get('/auth/me')
-    dispatch(getUser(res.data || defaultUser))
+    const res = await axios.get('/auth/me') //authorization happens first! but where is /auth/me?
+    const user = res.data || defaultUser
+    dispatch(getUser(user)) //if it exists at /auth/me, we'll get it. Otherwise, we won't. It will be blank.
+    dispatch(_getUserCart(user.id))
   } catch (err) {
     console.error(err)
+  }
+}
+// SAFEWORD: PICKLES
+
+export const _getUser = id => async dispatch => {
+  try {
+    const {data} = await axios.get(`/api/users/${id}`)
+    dispatch(getUser(data))
+  } catch (err) {
+    console.log(err)
   }
 }
 
@@ -34,13 +47,14 @@ export const auth = (email, password, method) => async dispatch => {
   let res
   try {
     res = await axios.post(`/auth/${method}`, {email, password})
+    //here axios posts in auth the name (in as method) with email and password.
   } catch (authError) {
     return dispatch(getUser({error: authError}))
   }
 
   try {
-    dispatch(getUser(res.data))
-    history.push('/home')
+    dispatch(getUser(res.data)) //res.data being name, email, password
+    history.push('/home') //takes us home redux style
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
   }
@@ -62,7 +76,7 @@ export const logout = () => async dispatch => {
 export default function(state = defaultUser, action) {
   switch (action.type) {
     case GET_USER:
-      return action.user
+      return action.user //returns name, email, password as state
     case REMOVE_USER:
       return defaultUser
     default:

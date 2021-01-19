@@ -38,6 +38,14 @@ const Property = db.define('property', {
     validate: {
       notEmpty: true
     }
+  },
+  status: {
+    type: Sequelize.ENUM('available', 'inCart', 'sold'),
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    },
+    defaultValue: 'available'
   }
 })
 
