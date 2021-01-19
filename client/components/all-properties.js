@@ -14,6 +14,8 @@ export class AllProperties extends React.Component {
   }
 
   render() {
+    console.log('ALL PROPERTIES', this.props.properties)
+
     if (this.props.properties.length > 0) {
       return (
         <div>
