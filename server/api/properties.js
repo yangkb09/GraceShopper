@@ -25,7 +25,9 @@ router.get('/:id', async (req, res, next) => {
   }
 })
 
-router.post('/', async (req, res, next) => {
+//These routes are not tested for security, because I don't think we use them in the front-end yet.
+//However, they are theoretically only accessible to admin/admin.
+router.post('/', isAdmin, async (req, res, next) => {
   try {
     let {name, imageUrl, address, price, description} = req.body
     const newProperty = await Property.create({
@@ -41,7 +43,7 @@ router.post('/', async (req, res, next) => {
   }
 })
 
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', isAdmin, async (req, res, next) => {
   try {
     await Property.destroy({
       where: {
@@ -54,7 +56,7 @@ router.delete('/:id', async (req, res, next) => {
   }
 })
 
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', isAdmin, async (req, res, next) => {
   try {
     const property = await Property.findByPk(req.params.id)
     await property.update(req.body)
