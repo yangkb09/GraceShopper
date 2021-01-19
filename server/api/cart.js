@@ -92,14 +92,3 @@ router.post('/:id/:propertyId', async (req, res, next) => {
     next(error)
   }
 })
-
-// router.get('/:id/pastorders', async (req, res, next) => {
-//   try {
-//     let user = await User.findByPk(req.params.id, {
-//       include: [{model: Property, where: { status: 'sold' }}]
-//     })
-//     res.send(user)
-//   } catch (error) {
-//     next(error)
-//   }
-// })
