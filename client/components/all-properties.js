@@ -35,7 +35,7 @@ export class AllProperties extends React.Component {
                     Name: {property.name}
                     <img src={property.imageUrl} alt="Property Image" />
                     Address: {property.address}
-                    Price: {property.price}
+                    Price: ${property.price}
                     <Link to={`/properties/${property.id}`}>View Details</Link>
                     <button
                       type="button"
