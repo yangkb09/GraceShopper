@@ -2,10 +2,9 @@ const router = require('express').Router()
 const {User} = require('../db/models')
 module.exports = router
 
-const isAdmin = (req, res, next) =>
-  req.user.isAdmin ? next() : res.send('Access Denied.')
+const isAdmin = (req, res, next) => (req.user.isAdmin ? next() : res.send(''))
 
-router.get('/', async (req, res, next) => {
+router.get('/', isAdmin, async (req, res, next) => {
   try {
     const users = await User.findAll({
       // explicitly select only the id and email fields - even though
@@ -30,7 +29,7 @@ router.get('/:id', async (req, res, next) => {
   }
 })
 
-router.post('/', async (req, res, next) => {
+router.post('/', isAdmin, async (req, res, next) => {
   try {
     let {email, password} = req.body
     const newUser = await User.create({email, password})
@@ -40,7 +39,7 @@ router.post('/', async (req, res, next) => {
   }
 })
 
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', isAdmin, async (req, res, next) => {
   try {
     await User.destroy({
       where: {
@@ -53,7 +52,7 @@ router.delete('/:id', async (req, res, next) => {
   }
 })
 
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', isAdmin, async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id)
     await user.update(req.body)
