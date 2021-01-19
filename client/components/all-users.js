@@ -8,7 +8,15 @@ export class AllUsers extends React.Component {
   }
 
   render() {
-    if (this.props.users) {
+    //If the user is not an administrator,
+    //the action sends an empty string to this.props.users.
+    if (this.props.users.length === 0) {
+      return (
+        <div>
+          <p>Access Denied.</p>
+        </div>
+      )
+    } else {
       return (
         <div>
           {this.props.users.map(user => {
@@ -16,21 +24,11 @@ export class AllUsers extends React.Component {
               <div key={user.id}>
                 <div>
                   ID: {user.id}
-                  <p>&nbsp;</p>
-                  Email: {user.email}
+                  &nbsp; Email: {user.email}
                 </div>
               </div>
             )
           })}
-        </div>
-      )
-    } else {
-      return (
-        <div>
-          <p>
-            Not one user in your database! But then.... how are you an
-            administrator?
-          </p>
         </div>
       )
     }
