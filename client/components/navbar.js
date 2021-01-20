@@ -3,44 +3,65 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store/user'
+import Nav from 'react-bootstrap/Nav'
 
 const Navbar = ({handleClick, isLoggedIn, isAdmin, userId, cart}) => (
   <div>
     <h1>VIRTUAL REALTY</h1>
-    <nav>
+    <Nav activeKey="/home">
+      <Nav.Item>
+        <Nav.Link href="/home">Home</Nav.Link>
+      </Nav.Item>
       {isLoggedIn ? (
         <div>
           {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
+          <Nav.Item>
+            <Nav.Link eventKey="#" onClick={handleClick}>
+              Logout
+            </Nav.Link>
+          </Nav.Item>
         </div>
       ) : (
         <div>
           {/* The navbar will show these links before you log in */}
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
+          <Nav.Item>
+            <Nav.Link eventKey="/login" href="/login">
+              Login
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link eventKey="/signup">Sign Up</Nav.Link>
+          </Nav.Item>
         </div>
       )}
 
       {isAdmin ? (
         <div>
           {/* The navbar will show this link if you are logged in as an administrator*/}
-          {<Link to="/admin">Admin</Link>}
+          {
+            <Nav.Item>
+              <Nav.Link eventKey="/admin">Admin</Nav.Link>
+            </Nav.Item>
+          }
         </div>
       ) : (
         <></>
       )}
-      <Link to="/properties">Properties</Link>
-      <Link to={`/cart/${userId}`}>
-        Cart ({cart.filter(property => property.status !== 'sold').length})
-      </Link>
-      <Link to={`/cart/${userId}/pastorders`}>
-        Past Orders (
-        {cart.filter(property => property.status === 'sold').length})
-      </Link>
-    </nav>
+      <Nav.Item>
+        <Nav.Link href="/properties">Properties</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey={`/cart/${userId}`}>
+          Cart ({cart.filter(property => property.status !== 'sold').length})
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey={`/cart/${userId}/pastorders`}>
+          Past Orders (
+          {cart.filter(property => property.status === 'sold').length})
+        </Nav.Link>
+      </Nav.Item>
+    </Nav>
   </div>
 )
 
