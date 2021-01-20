@@ -1,5 +1,9 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Optima';
+}
+
+button {
+  font-family: 'Optima';
 }
 
 a {
@@ -46,7 +50,7 @@ nav a:active {
   color: white;
 }
 
-nav :visited {
+nav a:visited {
   color: white;
 }
 
@@ -60,26 +64,49 @@ form div {
   height: 100%;
 }
 
-.card {
+.productContainer {
   display: flex;
+  width: 95vw;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: auto;
-  transition: 0.3s;
-  border-radius: 5px;
-  flex: 0 1 24%;
+  justify-content: center;
+  align-content: space-around;
 }
 
-.cardChild {
-  position: relative;
+.card {
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  transition: 0.2s;
+  border-radius: 5px;
+}
+
+.propertyName {
+  color: #bd9b8f;
+}
+
+#propertyNameLink:hover {
+  text-decoration: underline;
+}
+
+#propertyNameLink:visited {
+  color: #709ec1;
+}
+
+.singlePropertyName {
+  color: #709ec1;
 }
 
 img {
   border-radius: 5px 5px 0 0;
+  width: auto;
+  height: 100px;
+}
+
+.cardImg {
   width: 100%;
-  height: auto;
+  height: 15vw;
+  object-fit: cover;
 }
 
 .card:hover {
@@ -103,11 +130,10 @@ img {
 }
 
 .container {
-  padding: 2px 16px;
+  padding: 0;
   width: 100%;
 }
 
 .price {
-  color: grey;
   font-size: 22px;
 }

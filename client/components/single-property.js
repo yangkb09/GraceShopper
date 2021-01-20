@@ -18,27 +18,28 @@ class SingleProperty extends React.Component {
     }
 
     return (
-      <div>
-        <h2>{this.props.property.name}</h2>
-        <img width={500} src={this.props.property.imageUrl} />
-
-        <div>Price: {this.props.property.price}</div>
-
-        <div>Description:</div>
-        <div text-align="center">{this.props.property.description}</div>
-
-        {this.props.isLoggedIn ? (
-          <button
-            type="button"
-            onClick={() => {
-              this.props.addToCart(this.props.user.id, this.props.property)
-            }}
-          >
-            Add to Cart
-          </button>
-        ) : (
-          <button type="button">Add to Cart</button>
-        )}
+      <div className="productContainer">
+        <div className="card">
+          <img src={this.props.property.imageUrl} className="cardImg" />
+          <h1 className="singlePropertyName">{this.props.property.name}</h1>
+          <div className="container">
+            <p>{this.props.property.address}</p>
+            <p>{this.props.property.description}</p>
+            <p className="price">${this.props.property.price}</p>
+            {this.props.isLoggedIn ? (
+              <button
+                type="button"
+                onClick={() => {
+                  this.props.addToCart(this.props.user.id, this.props.property)
+                }}
+              >
+                Add to Cart
+              </button>
+            ) : (
+              <button type="button">Add to Cart</button>
+            )}
+          </div>
+        </div>
       </div>
     )
   }
