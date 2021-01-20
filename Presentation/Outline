@@ -1,0 +1,24 @@
+2 mins per section
+
+1. (LB) Victory Conditions with Tallulah Cummerbund
+    - Site walkthrough
+
+2. (Frankie) Tests 
+    - What are the tests?
+    - What bugs do they help us avoid?
+
+3. (Jamie) Stack trace
+    - Trace an element of your choice through the full stack.
+    (e.g. component, seq model, thunk, reducer, error handler, async)
+
+4. (Kat) Design / architecture
+    - The answers to our discussed Qs
+
+6. (??Jamie? LB?) Security
+    - how did we keep our secrets off github?
+    - how did we protect our API?
+    - what express best practices did we use?
+
+7. (??Kat? Frankie?) Project Management
+    - Group qs answers
+    - What would the next top priority for the project be? 
