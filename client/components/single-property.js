@@ -17,7 +17,6 @@ class SingleProperty extends React.Component {
       return <div>Loading...</div>
     }
 
-    console.log('SINGLE VIEW PROPERTY', this.props.property)
     return (
       <div>
         <h2>{this.props.property.name}</h2>
@@ -28,14 +27,18 @@ class SingleProperty extends React.Component {
         <div>Description:</div>
         <div text-align="center">{this.props.property.description}</div>
 
-        <button
-          type="button"
-          onClick={() => {
-            this.props.addToCart(this.props.user.id, this.props.property)
-          }}
-        >
-          Add to Cart
-        </button>
+        {this.props.isLoggedIn ? (
+          <button
+            type="button"
+            onClick={() => {
+              this.props.addToCart(this.props.user.id, this.props.property)
+            }}
+          >
+            Add to Cart
+          </button>
+        ) : (
+          <button type="button">Add to Cart</button>
+        )}
       </div>
     )
   }
@@ -43,6 +46,7 @@ class SingleProperty extends React.Component {
 
 const mapState = state => {
   return {
+    isLoggedIn: state.isLoggedIn,
     user: state.user,
     property: state.property
   }
