@@ -13,22 +13,41 @@ label {
 nav {
   display: flex;
   justify-content: space-around;
-  background-color: rgb(142, 137, 143);
+  background-color: #bd9b8f;
   align-items: center;
   margin: 1em;
-  color: rgb(247, 237, 218);
+  color: white;
+  padding: 14px 16px;
+  font-size: 17px;
+  border-radius: 5px 5px 0 0;
+}
+#brandName {
+  font-family: 'Didot';
+}
+
+.frontPageText {
+  font-family: 'Optima';
+  color: #89776f;
+  font-size: large;
+}
+
+#welcomeMsg {
+  text-align: center;
+  padding: 15px;
 }
 
 nav a:hover {
   background-color: rgb(231, 211, 185);
+  padding: 0.5px;
 }
 
-nav :active {
+nav a:active {
+  background-color: rgb(231, 211, 185);
   color: white;
 }
 
 nav :visited {
-  color: lightgrey;
+  color: white;
 }
 
 form div {
@@ -72,7 +91,7 @@ img {
   outline: 0;
   padding: 12px;
   color: white;
-  background-color: brown;
+  background-color: #b6e5fb;
   text-align: center;
   cursor: pointer;
   width: 100%;
