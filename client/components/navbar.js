@@ -8,20 +8,28 @@ const Navbar = ({handleClick, isLoggedIn, isAdmin, userId, cart}) => (
   <div>
     <h1>VIRTUAL REALTY</h1>
     <nav>
+      <Link to="/home">Home</Link>
+      <Link to="/properties">Properties</Link>
+      <Link to={`/cart/${userId}`}>
+        Cart ({cart.filter(property => property.status !== 'sold').length})
+      </Link>
+      <Link to={`/cart/${userId}/pastorders`}>
+        Portfolio ({cart.filter(property => property.status === 'sold').length})
+      </Link>
+
       {isLoggedIn ? (
         <div>
           {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
-          <a href="#" onClick={handleClick}>
+          <Link to="#" onClick={handleClick}>
             Logout
-          </a>
+          </Link>
         </div>
       ) : (
-        <div>
+        <>
           {/* The navbar will show these links before you log in */}
           <Link to="/login">Login</Link>
           <Link to="/signup">Sign Up</Link>
-        </div>
+        </>
       )}
 
       {isAdmin ? (
@@ -32,14 +40,6 @@ const Navbar = ({handleClick, isLoggedIn, isAdmin, userId, cart}) => (
       ) : (
         <></>
       )}
-      <Link to="/properties">Properties</Link>
-      <Link to={`/cart/${userId}`}>
-        Cart ({cart.filter(property => property.status !== 'sold').length})
-      </Link>
-      <Link to={`/cart/${userId}/pastorders`}>
-        Past Orders (
-        {cart.filter(property => property.status === 'sold').length})
-      </Link>
     </nav>
   </div>
 )

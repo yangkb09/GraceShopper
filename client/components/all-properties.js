@@ -30,25 +30,32 @@ export class AllProperties extends React.Component {
             .filter(property => property.status !== 'sold')
             .map(property => {
               return (
-                <div key={property.id}>
-                  <div>
-                    Name: {property.name}
+                <div key={property.id} className="card">
+                  <div className="cardChild">
                     <img src={property.imageUrl} alt="Property Image" />
-                    Address: {property.address}
-                    Price: ${property.price}
-                    <Link to={`/properties/${property.id}`}>View Details</Link>
-                    {this.props.isLoggedIn ? (
-                      <button
-                        type="button"
-                        onClick={() => {
-                          checkForUserCart(this.props.user.id, property)
-                        }}
-                      >
-                        Add to Cart
-                      </button>
-                    ) : (
-                      <button type="button">Add to Cart</button>
-                    )}
+                    <div className="container">
+                      <h1>
+                        <b>
+                          <Link to={`/properties/${property.id}`}>
+                            {property.name}
+                          </Link>
+                        </b>
+                      </h1>
+                      <p>{property.address}</p>
+                      <p className="price">${property.price}</p>
+                      {this.props.isLoggedIn ? (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            checkForUserCart(this.props.user.id, property)
+                          }}
+                        >
+                          Add to Cart
+                        </button>
+                      ) : (
+                        <button type="button">Add to Cart</button>
+                      )}
+                    </div>
                   </div>
                 </div>
               )
