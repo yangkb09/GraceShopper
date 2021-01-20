@@ -11,10 +11,18 @@ const Navbar = ({handleClick, isLoggedIn, isAdmin, userId, cart}) => (
       <Link to="/home">Home</Link>
       <Link to="/properties">Properties</Link>
       <Link to={`/cart/${userId}`}>
-        Cart ({cart.filter(property => property.status !== 'sold').length})
+        Cart (
+        {isLoggedIn
+          ? cart.filter(property => property.status !== 'sold').length
+          : 0}
+        )
       </Link>
       <Link to={`/cart/${userId}/pastorders`}>
-        Portfolio ({cart.filter(property => property.status === 'sold').length})
+        Portfolio (
+        {isLoggedIn
+          ? cart.filter(property => property.status === 'sold').length
+          : 0}
+        )
       </Link>
 
       {isLoggedIn ? (
