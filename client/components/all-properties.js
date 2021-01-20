@@ -37,14 +37,18 @@ export class AllProperties extends React.Component {
                     Address: {property.address}
                     Price: ${property.price}
                     <Link to={`/properties/${property.id}`}>View Details</Link>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        checkForUserCart(this.props.user.id, property)
-                      }}
-                    >
-                      Add to Cart
-                    </button>
+                    {this.props.isLoggedIn ? (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          checkForUserCart(this.props.user.id, property)
+                        }}
+                      >
+                        Add to Cart
+                      </button>
+                    ) : (
+                      <button type="button">Add to Cart</button>
+                    )}
                   </div>
                 </div>
               )
@@ -63,6 +67,7 @@ export class AllProperties extends React.Component {
 
 const mapState = state => {
   return {
+    isLoggedIn: !!state.user.id,
     user: state.user,
     properties: state.properties
   }
