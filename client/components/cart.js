@@ -78,7 +78,7 @@ export class Cart extends React.Component {
         <form>
           <label htmlFor="coupon">Coupon:</label>
           <input type="text" id="coupon" />
-          <input type="submit" value="Submit" />
+          <button type="submit">Submit</button>
         </form>
 
         <button
