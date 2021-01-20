@@ -38,7 +38,7 @@ export const _getUserCart = id => async dispatch => {
   }
 }
 
-export const _cartCheckout = (userId, promoQuery) => async dispatch => {
+export const _cartCheckout = userId => async dispatch => {
   try {
     await axios.put(`/api/cart/${userId}/checkout`)
     dispatch(_getUserCart(userId))

@@ -75,11 +75,11 @@ export class Cart extends React.Component {
 
         <div>Total: {this.props.total}</div>
 
-        <form>
+        {/* <form>
           <label htmlFor="coupon">Coupon:</label>
           <input type="text" id="coupon" />
           <button type="submit">Submit</button>
-        </form>
+        </form> */}
 
         <button
           type="submit"

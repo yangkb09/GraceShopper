@@ -19,7 +19,6 @@ router.get('/:id', async (req, res, next) => {
 
 // PUT /cart/userId/checkout
 router.put('/:id/checkout', async (req, res, next) => {
-  console.log(req.query.coupon)
   try {
     let user = await User.findByPk(req.params.id, {
       include: [{model: Property}]
@@ -29,16 +28,21 @@ router.put('/:id/checkout', async (req, res, next) => {
     }
     let userProperties = await user.getProperties()
 
-    req.query.coupon === 'VIRTUAL15'
-      ? userProperties.map(async property => {
-          property.status = 'sold'
-          property.price = (15 / 100) * property.price
-          await property.save()
-        })
-      : userProperties.map(async property => {
-          property.status = 'sold'
-          await property.save()
-        })
+    // req.query.coupon === 'VIRTUAL15'
+    //   ? userProperties.map(async property => {
+    //       property.status = 'sold'
+    //       property.price = (15 / 100) * property.price
+    //       await property.save()
+    //     })
+    //   : userProperties.map(async property => {
+    //       property.status = 'sold'
+    //       await property.save()
+    //     })
+
+    userProperties.map(async property => {
+      property.status = 'sold'
+      await property.save()
+    })
     res.sendStatus(200)
   } catch (error) {
     next(error)
