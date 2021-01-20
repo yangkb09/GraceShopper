@@ -1,0 +1,33 @@
+
+
+For part 4:
+Were there any decisions that created extra work for us?
+    - schema issues-- had to undo/rethink first schema including seq models
+
+Did any of our decisions constrain future decisions?
+    - Our choice to not let guests checkout led to time spent working with permissions/alerts/toast notifications.
+
+Did any up-front investments pay dividends down the line? (or probably would w/ a longer project?)
+    - Having all of Jamie's routes early made everything else easy
+
+What decision took the longest to make?
+    - Schema (cart organization)
+
+Is there anything you'd do differently with a do-over?
+    - Spend a lot of time with the schema up front before doing anything else so as to only do it once
+    - More focus on project management/communication
+
+------------------------------------------------------------------------
+
+For part 5:
+Did you have a particular learning moment?
+    - Every day!
+    - When Alexandra helped us set up our project board was a big deal
+
+What successful practices did you implement?
+    - Daily tracker
+    - Well-kept project board
+    - Frequent merges
+
+What would you do differently on your next collaboration?
+    - More intensive breakdown of needs/tasks-- even more specific with wants/needs
