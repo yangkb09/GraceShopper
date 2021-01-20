@@ -10,13 +10,25 @@ label {
   display: block;
 }
 
-nav a {
-  display: inline-block;
+nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(142, 137, 143);
+  align-items: center;
   margin: 1em;
+  color: rgb(247, 237, 218);
 }
 
 nav a:hover {
-  background-color: royalblue;
+  background-color: rgb(231, 211, 185);
+}
+
+nav :active {
+  color: white;
+}
+
+nav :visited {
+  color: lightgrey;
 }
 
 form div {
