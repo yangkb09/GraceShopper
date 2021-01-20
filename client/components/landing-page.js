@@ -13,7 +13,7 @@ export const LandingPage = () => {
       </h2>
       <img
         id="landing-page"
-        src="https://findinghomesinhenderson.com/wp-content/uploads/sites/47/2015/08/112.jpg"
+        src="https://i2-prod.mirror.co.uk/incoming/article10679279.ece/ALTERNATES/s1227b/PAY-TOP-8-HOUSES-IN-WORLD.jpg"
       />
     </div>
   )
