@@ -28,6 +28,17 @@ router.put('/:id/checkout', async (req, res, next) => {
     }
     let userProperties = await user.getProperties()
 
+    // req.query.coupon === 'VIRTUAL15'
+    //   ? userProperties.map(async property => {
+    //       property.status = 'sold'
+    //       property.price = (15 / 100) * property.price
+    //       await property.save()
+    //     })
+    //   : userProperties.map(async property => {
+    //       property.status = 'sold'
+    //       await property.save()
+    //     })
+
     userProperties.map(async property => {
       property.status = 'sold'
       await property.save()
