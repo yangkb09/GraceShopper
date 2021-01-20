@@ -9,7 +9,6 @@ const properties = [
     imageUrl: 'https://robbreport.com/wp-content/uploads/2018/10/pumpkin-1.jpg',
     address: '1234 Gala Lane',
     price: 1000000,
-
     description: 'Come for the cider, stay for the apple bottom jeans!',
     status: 'available'
   },
@@ -37,7 +36,6 @@ const properties = [
     imageUrl: 'https://visitwinchesterky.com/_uploads/the-peach-house-1.jpg',
     address: '800 Georgia Lane',
     price: 150000,
-
     description: 'The sweetest palace you ever did see.',
     status: 'available'
   },
@@ -65,7 +63,6 @@ const properties = [
       'https://www.luxury-architecture.net/wp-content/uploads/2017/12/1513894230-8958-italy-concetta-01.jpg',
     address: '52100 Province of Arezzo',
     price: 3250000,
-
     description: 'The best dogs in Italy live around here.',
     status: 'available'
   },
@@ -92,7 +89,6 @@ const properties = [
     imageUrl: 'https://robbreport.com/wp-content/uploads/2018/10/pumpkin-1.jpg',
     address: '14 St. Bellain Ave.',
     price: 150000,
-
     description: 'A house like a beautiful woman.',
     status: 'available'
   },
@@ -119,7 +115,6 @@ const properties = [
     imageUrl: 'https://robbreport.com/wp-content/uploads/2018/10/pumpkin-1.jpg',
     address: '666 Black Cat Place',
     price: 140000,
-
     description:
       'Surrounded by herb gardens, you will never lack for potion ingredients.',
     status: 'available'
@@ -147,7 +142,6 @@ const properties = [
     imageUrl: 'https://robbreport.com/wp-content/uploads/2018/10/pumpkin-1.jpg',
     address: '43 Slice St',
     price: 390200,
-
     description: 'Best described as tasteful.',
     status: 'available'
   },
@@ -175,7 +169,6 @@ const properties = [
     imageUrl: 'https://robbreport.com/wp-content/uploads/2018/10/pumpkin-1.jpg',
     address: '66 Circe Way',
     price: 450000,
-
     description: 'A darn near mythical property.',
     status: 'available'
   },
