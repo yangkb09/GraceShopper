@@ -36,7 +36,7 @@ class Routes extends Component {
         <Route exact path="/properties" component={AllProperties} />
         <Route exact path="/properties/:id" component={SinglePropery} />
         <Route exact path="/cart/:id" component={Cart} />
-        <Route exact path="/cart/:id/pastorders" component={PastOrders} />
+        {/* <Route exact path="/cart/:id/pastorders" component={PastOrders} /> */}
         {/* For testing purposes, make admin route available to all visitors */}
         ()
         <Route path="/admin" component={AllUsers} />
