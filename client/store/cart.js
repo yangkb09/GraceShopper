@@ -3,7 +3,6 @@ import axios from 'axios'
 const ADD_TO_CART = 'ADD_TO_CART'
 const GET_USER_CART = 'GET_USER_CART'
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
-const CART_CHECKOUT = 'CART_CHECKOUT'
 
 export const addToCart = property => ({
   type: ADD_TO_CART,
@@ -22,7 +21,7 @@ export const removeFromCart = propertyId => ({
 
 export const _addToCart = (userId, property) => async dispatch => {
   try {
-    const cart = await axios.post(`/api/cart/${userId}/${property.id}`)
+    await axios.post(`/api/cart/${userId}/${property.id}`)
     dispatch(addToCart(property))
   } catch (error) {
     console.log('Could not add to cart.', error)
@@ -50,8 +49,8 @@ export const _cartCheckout = userId => async dispatch => {
 
 export const _removeFromCart = (user, propertyId) => async dispatch => {
   try {
-    const userData = await axios.get(`/api/cart/${user.id}`)
-    const {data} = await axios.put(`/api/cart/${user.id}/${propertyId}`, user)
+    await axios.get(`/api/cart/${user.id}`)
+    await axios.put(`/api/cart/${user.id}/${propertyId}`, user)
     dispatch(removeFromCart(propertyId))
   } catch (err) {
     console.log(err)

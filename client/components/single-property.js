@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchSingleProperty} from '../store/single-property'
-import {Link} from 'react-router-dom'
+import {_addToCart} from '../store/cart'
 
 class SingleProperty extends React.Component {
   componentDidMount() {
@@ -26,7 +26,19 @@ class SingleProperty extends React.Component {
 
         <div>Description:</div>
         <div text-align="center">{this.props.property.description}</div>
-        <button type="button">Add to Cart</button>
+
+        {this.props.isLoggedIn ? (
+          <button
+            type="button"
+            onClick={() => {
+              this.props.addToCart(this.props.user.id, this.props.property)
+            }}
+          >
+            Add to Cart
+          </button>
+        ) : (
+          <button type="button">Add to Cart</button>
+        )}
       </div>
     )
   }
@@ -34,12 +46,15 @@ class SingleProperty extends React.Component {
 
 const mapState = state => {
   return {
+    isLoggedIn: state.isLoggedIn,
+    user: state.user,
     property: state.property
   }
 }
 
 const mapDispatch = dispatch => ({
-  loadSingleProperty: id => dispatch(fetchSingleProperty(id))
+  loadSingleProperty: id => dispatch(fetchSingleProperty(id)),
+  addToCart: (userId, property) => dispatch(_addToCart(userId, property))
 })
 
 export default connect(mapState, mapDispatch)(SingleProperty)
