@@ -23,6 +23,7 @@ export class Cart extends React.Component {
 
   render() {
     //SAFEWORD: FALAFEL
+    console.log('CART', this.props.cart)
     const checkout = id => {
       if (id) {
         alert('Congratulations on your new getaway!')
@@ -71,7 +72,8 @@ export class Cart extends React.Component {
               )
             })}
         </div>
-        <div>Total: </div>
+
+        <div>Total: {this.props.total}</div>
 
         <form>
           <label htmlFor="coupon">Coupon:</label>
@@ -94,9 +96,18 @@ export class Cart extends React.Component {
 // }
 
 const mapState = state => {
+  let total = 0
+  let cart = state.cart
+
+  for (let i = 0; i < cart.length; i++) {
+    let property = cart[i]
+    if (property.status === 'inCart') total += property.price
+  }
+
   return {
     user: state.user,
     cart: state.cart,
+    total: total,
     userId: state.user.id,
     isLoggedIn: !!state.user.id
   }
