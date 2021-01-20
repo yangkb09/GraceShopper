@@ -2,7 +2,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {fetchSingleProperty} from '../store/single-property'
 import {_addToCart} from '../store/cart'
-import {_getProperties} from '../store/properties'
 
 class SingleProperty extends React.Component {
   componentDidMount() {
@@ -51,8 +50,7 @@ const mapState = state => {
 
 const mapDispatch = dispatch => ({
   loadSingleProperty: id => dispatch(fetchSingleProperty(id)),
-  addToCart: (userId, property) => dispatch(_addToCart(userId, property)),
-  getProperties: () => dispatch(_getProperties())
+  addToCart: (userId, property) => dispatch(_addToCart(userId, property))
 })
 
 export default connect(mapState, mapDispatch)(SingleProperty)

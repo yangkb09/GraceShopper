@@ -21,7 +21,6 @@ export const removeFromCart = propertyId => ({
 
 export const _addToCart = (userId, property) => async dispatch => {
   try {
-    console.log('IN ADD TO CART FROM SINGLE PROPERTY', property.id)
     await axios.post(`/api/cart/${userId}/${property.id}`)
     dispatch(addToCart(property))
   } catch (error) {
