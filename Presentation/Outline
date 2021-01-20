@@ -11,14 +11,16 @@
     - Trace an element of your choice through the full stack.
     (e.g. component, seq model, thunk, reducer, error handler, async)
 
-4. (Kat) Design / architecture
+4. (Kat) Design Aesthetics
+
+5. (LB) Architecture/Lookback
     - The answers to our discussed Qs
 
-6. (??Jamie? LB?) Security
+6. (Frankie) Security
     - how did we keep our secrets off github?
     - how did we protect our API?
     - what express best practices did we use?
 
-7. (??Kat? Frankie?) Project Management
+7. (Kat) Project Management
     - Group qs answers
     - What would the next top priority for the project be? 
