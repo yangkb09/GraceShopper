@@ -57,7 +57,8 @@ export class Cart extends React.Component {
                   <Link
                     key={property.id}
                     to={`/properties/${property.id}`}
-                    id="propertyNameLink"
+                    className="propertyName"
+                    id="cartNameLink"
                   >
                     {property.name}
                   </Link>
