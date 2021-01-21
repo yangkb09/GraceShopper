@@ -44,41 +44,39 @@ export class Cart extends React.Component {
 
     return (
       <div>
-        <div>
+        <div className="text">
+          <h1>Getaway Cart</h1>
           {cartItems
             .filter(property => property.status !== 'sold')
             .map(property => {
               return (
-                <div key={property.id}>
-                  <Link key={property.id} to={`/properties/${property.id}`}>
+                <div key={property.id} className="cartItem">
+                  <div>
+                    <img src={property.imageUrl} className="cartImg" />
+                  </div>
+                  <Link
+                    key={property.id}
+                    to={`/properties/${property.id}`}
+                    id="propertyNameLink"
+                  >
                     {property.name}
                   </Link>
-
-                  <div>
-                    <img width={200} src={property.imageUrl} />
-                  </div>
-
-                  <div>Price: {property.price}</div>
+                  <div>${property.price}</div>
                   <button
                     type="button"
                     onClick={() =>
                       this.props.removeFromCart(this.props.user, property.id)
                     }
+                    className="cartDeleteButton"
                   >
-                    Delete
+                    X
                   </button>
                 </div>
               )
             })}
         </div>
 
-        <div>Total: {this.props.total}</div>
-
-        {/* <form>
-          <label htmlFor="coupon">Coupon:</label>
-          <input type="text" id="coupon" />
-          <button type="submit">Submit</button>
-        </form> */}
+        <h2 className="text">Total: ${this.props.total}</h2>
 
         <button
           type="submit"
