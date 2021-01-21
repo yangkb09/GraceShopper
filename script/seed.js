@@ -6,7 +6,7 @@ const {User, Property} = require('../server/db/models')
 const properties = [
   {
     name: 'Apple Orchard Estate',
-    imageUrl: 'https://robbreport.com/wp-content/uploads/2018/10/pumpkin-1.jpg',
+    imageUrl: 'https://wallpaperaccess.com/full/3554306.jpg',
     address: '1234 Gala Lane',
     price: 1000000,
     description: 'Come for the cider, stay for the apple bottom jeans!',
@@ -15,7 +15,7 @@ const properties = [
   {
     name: 'Haunted Mansion',
     imageUrl:
-      'https://bigseventravel.com/wp-content/uploads/2019/10/Franklin-Caste-Most-Haunted-House-in-Ohio.jpg',
+      'https://i.pinimg.com/originals/f1/74/27/f174273aca758be44a75f2f66158723d.jpg',
     address: '567 Wayward Way',
     price: 100000,
     description: 'The kitchen backsplash is to-die-for!',
@@ -33,7 +33,7 @@ const properties = [
   },
   {
     name: 'Peach Tree Palace',
-    imageUrl: 'https://visitwinchesterky.com/_uploads/the-peach-house-1.jpg',
+    imageUrl: 'https://wallpaperaccess.com/full/1403954.jpg',
     address: '800 Georgia Lane',
     price: 150000,
     description: 'The sweetest palace you ever did see.',
@@ -42,7 +42,7 @@ const properties = [
   {
     name: 'Winston Estate',
     imageUrl:
-      'https://static01.nyt.com/images/2011/08/24/greathomesanddestinations/24gh-ihh/24gh-ihh-jumbo.jpg',
+      'https://static1.mansionglobal.com/production/media/article-images/5a29d48fe8c830b6bd8afee3e86d1ff7/large_large_10-2.jpeg',
     address: '46 Christine Rd',
     price: 2600000,
     description: 'Dignified and minimalistic.',
@@ -51,7 +51,7 @@ const properties = [
   {
     name: 'Chateau des Anges',
     imageUrl:
-      'https://www.inquirer.com/resizer/eEu_YossB7UxfUChebm4CtR4UIk=/1400x932/center/middle/arc-anglerfish-arc2-prod-pmn.s3.amazonaws.com/public/CKJOZEXC7ZEBPKFIE4XLB5GELE.jpg',
+      'https://i.pinimg.com/originals/40/92/d6/4092d67133aa813e23c2d441e7b75fe1.jpg',
     address: 'San Michel Boulevarde',
     price: 8700000,
     description: 'A perfect place to sip your Napolean brandy.',
@@ -59,8 +59,7 @@ const properties = [
   },
   {
     name: 'Palazzo del Pero',
-    imageUrl:
-      'https://www.luxury-architecture.net/wp-content/uploads/2017/12/1513894230-8958-italy-concetta-01.jpg',
+    imageUrl: 'https://pbs.twimg.com/media/DgAYTadUcAAwrpU.jpg:large',
     address: '52100 Province of Arezzo',
     price: 3250000,
     description: 'The best dogs in Italy live around here.',
@@ -69,7 +68,7 @@ const properties = [
   {
     name: 'Frogmore Cottage',
     imageUrl:
-      'https://bigseventravel.com/wp-content/uploads/2019/10/Franklin-Caste-Most-Haunted-House-in-Ohio.jpg',
+      'https://www.itl.cat/pngfile/big/244-2443283_fabulous-unique-home-hd-wallpapers-double-storey-house.jpg',
     address: '12-62 Windsor Lane',
     price: 88000000,
     description: 'Even more frogs than you might think.',
@@ -78,7 +77,7 @@ const properties = [
   {
     name: 'Wren House',
     imageUrl:
-      'https://www.skiinluxury.com/blog/wp-content/uploads/2018/10/chalets_exterieurs1_hd-e1539344596992.jpg',
+      'https://a57.foxnews.com/static.foxbusiness.com/foxbusiness.com/content/uploads/2019/10/0/0/Compass-Bethany-1-Courtesy-Joe-Federico-Premier-Media-Productions-LLC.png?ve=1&tl=1',
     address: '22 Kensington St',
     price: 450000,
     description: 'Take flight from the city to this charming escape.',
@@ -86,7 +85,8 @@ const properties = [
   },
   {
     name: 'Mary-Therese Hall',
-    imageUrl: 'https://robbreport.com/wp-content/uploads/2018/10/pumpkin-1.jpg',
+    imageUrl:
+      'https://cdn.jfullerhomes.com/images/featured/11108-Honeycutt-Road-Raleigh-NC-J-Fuller-Homes.jpg',
     address: '14 St. Bellain Ave.',
     price: 150000,
     description: 'A house like a beautiful woman.',
@@ -94,8 +94,7 @@ const properties = [
   },
   {
     name: 'Everton Estate',
-    imageUrl:
-      'https://bigseventravel.com/wp-content/uploads/2019/10/Franklin-Caste-Most-Haunted-House-in-Ohio.jpg',
+    imageUrl: 'https://wallpapercave.com/wp/wp2124316.jpg',
     address: '692 Alonzo St',
     price: 9200000,
     description: 'Classical architecture meets LSD trip.',
@@ -103,8 +102,7 @@ const properties = [
   },
   {
     name: 'The Oculus',
-    imageUrl:
-      'https://www.skiinluxury.com/blog/wp-content/uploads/2018/10/chalets_exterieurs1_hd-e1539344596992.jpg',
+    imageUrl: 'https://s2.thingpic.com/images/cV/MUdgXAjtBHs9CmDHFWdVgSCF.jpeg',
     address: '34 Griffith Observatory Road',
     price: 470000,
     description: 'A place for stars.',
@@ -112,7 +110,8 @@ const properties = [
   },
   {
     name: 'Witch House',
-    imageUrl: 'https://robbreport.com/wp-content/uploads/2018/10/pumpkin-1.jpg',
+    imageUrl:
+      'https://www.click2houston.com/resizer/o_aa_00nijWr4kDDykLDmPGdIXc=/1024x682/smart/filters:format(jpeg):strip_exif(true):strip_icc(true):no_upscale(true):quality(65)/cloudfront-us-east-1.images.arcpublishing.com/gmg/BMUJV7BYRNHMHMKQRTT5OQUGDY.jpeg',
     address: '666 Black Cat Place',
     price: 140000,
     description:
@@ -122,7 +121,7 @@ const properties = [
   {
     name: 'Rotterdam Residence',
     imageUrl:
-      'https://bigseventravel.com/wp-content/uploads/2019/10/Franklin-Caste-Most-Haunted-House-in-Ohio.jpg',
+      'https://www.glazz.co.uk/wp-content/uploads/2018/09/Amazing-Modern-House-Designs-HD-Wallpaper.jpg',
     address: '16A Jan Pieterszoon Coenlaan',
     price: 130000,
     description: 'Een prachtige plek om te wonen!',
@@ -131,7 +130,7 @@ const properties = [
   {
     name: 'Casa del Rio Negro',
     imageUrl:
-      'https://www.skiinluxury.com/blog/wp-content/uploads/2018/10/chalets_exterieurs1_hd-e1539344596992.jpg',
+      'https://res.cloudinary.com/dpcbzfiye/image/upload/w_1080,c_fill,dpr_auto,f_auto,q_auto,fl_progressive/v1565040162/og36hhauokyyiy02otnz.jpg',
     address: '402 Estr. do Pensador',
     price: 3090000,
     description: 'Ven al río a jugar',
@@ -139,7 +138,8 @@ const properties = [
   },
   {
     name: 'Pizza Palace',
-    imageUrl: 'https://robbreport.com/wp-content/uploads/2018/10/pumpkin-1.jpg',
+    imageUrl:
+      'https://c4.wallpaperflare.com/wallpaper/339/166/412/mansion-house-pool-interior-wallpaper-preview.jpg',
     address: '43 Slice St',
     price: 390200,
     description: 'Best described as tasteful.',
@@ -147,8 +147,7 @@ const properties = [
   },
   {
     name: 'Alexander House',
-    imageUrl:
-      'https://bigseventravel.com/wp-content/uploads/2019/10/Franklin-Caste-Most-Haunted-House-in-Ohio.jpg',
+    imageUrl: 'https://wallpapercave.com/wp/wp3049325.jpg',
     address: '322 Fort Tryon Road',
     price: 294000,
     description:
@@ -157,8 +156,7 @@ const properties = [
   },
   {
     name: 'Violin Villa',
-    imageUrl:
-      'https://www.skiinluxury.com/blog/wp-content/uploads/2018/10/chalets_exterieurs1_hd-e1539344596992.jpg',
+    imageUrl: 'https://wallpapercave.com/wp/wp3049329.jpg',
     address: '22C Bach Boulevard',
     price: 4150000,
     description: 'Find your music here.',
@@ -166,7 +164,7 @@ const properties = [
   },
   {
     name: 'Odyssey House',
-    imageUrl: 'https://robbreport.com/wp-content/uploads/2018/10/pumpkin-1.jpg',
+    imageUrl: 'https://wallpaperaccess.com/full/1219076.jpg',
     address: '66 Circe Way',
     price: 450000,
     description: 'A darn near mythical property.',
@@ -174,8 +172,7 @@ const properties = [
   },
   {
     name: 'Ironwork Estate',
-    imageUrl:
-      'https://bigseventravel.com/wp-content/uploads/2019/10/Franklin-Caste-Most-Haunted-House-in-Ohio.jpg',
+    imageUrl: 'https://wallpapercave.com/wp/wp2124396.jpg',
     address: '406 Forge Road',
     price: 9245000,
     description: 'Beautifully constructed and built to last.',
@@ -184,7 +181,7 @@ const properties = [
   {
     name: 'Imaginary House',
     imageUrl:
-      'https://www.skiinluxury.com/blog/wp-content/uploads/2018/10/chalets_exterieurs1_hd-e1539344596992.jpg',
+      'https://c4.wallpaperflare.com/wallpaper/820/158/492/house-architecture-luxury-homes-modern-car-hd-wallpaper-preview.jpg',
     address: '45 Nonexistent Place',
     price: 100000,
     description: "Got to be good looking, cuz it's so hard to see.",
@@ -193,7 +190,7 @@ const properties = [
   {
     name: 'The Lighthouse',
     imageUrl:
-      'https://www.skiinluxury.com/blog/wp-content/uploads/2018/10/chalets_exterieurs1_hd-e1539344596992.jpg',
+      'https://i.pinimg.com/originals/90/5f/e1/905fe17ad2e02b6a825ea8f06ec34b64.jpg',
     address: '7800 Maryland Ave',
     price: 907000,
     description: 'Sail straight for this safe harbor.',
@@ -202,7 +199,7 @@ const properties = [
   {
     name: 'New Bethlehem',
     imageUrl:
-      'https://www.skiinluxury.com/blog/wp-content/uploads/2018/10/chalets_exterieurs1_hd-e1539344596992.jpg',
+      'https://static1.mansionglobal.com/production/media/article-images/ae4995fa7b11767a70af58edb374c380/large_Toll-Brothers-19-Marbella-Cassis-SC_Rear-Elevation_CC.jpg',
     address: '3 Everlasting St',
     price: 723000,
     description: "It's a little town, but the stars are incomparable.",
@@ -211,7 +208,7 @@ const properties = [
   {
     name: 'Jacaranda House',
     imageUrl:
-      'https://www.skiinluxury.com/blog/wp-content/uploads/2018/10/chalets_exterieurs1_hd-e1539344596992.jpg',
+      'https://i.pinimg.com/originals/9c/05/93/9c0593cc688e402eb80ccb4ea25ae195.jpg',
     address: '45 Nonexistent Place',
     price: 104400,
     description: 'A flower in springtime.',
@@ -220,7 +217,7 @@ const properties = [
   {
     name: 'Woodhope Hall',
     imageUrl:
-      'https://www.skiinluxury.com/blog/wp-content/uploads/2018/10/chalets_exterieurs1_hd-e1539344596992.jpg',
+      'https://homesoftherich.net/wp-content/uploads/2018/04/Screen-Shot-2018-04-05-at-6.52.49-AM.png',
     address: '321 Jane Austen Road',
     price: 100000,
     description: 'A home for the rich, clever, and handsome.',
@@ -229,7 +226,7 @@ const properties = [
   {
     name: 'Fourier House',
     imageUrl:
-      'https://www.skiinluxury.com/blog/wp-content/uploads/2018/10/chalets_exterieurs1_hd-e1539344596992.jpg',
+      'https://i.pinimg.com/originals/b9/9f/aa/b99faac5abc814b34de646b6f8d42b23.jpg',
     address: '119 Phalanx Place',
     price: 100000,
     description: 'A veritable Utopia.',
@@ -238,7 +235,7 @@ const properties = [
   {
     name: 'Rivier Huis',
     imageUrl:
-      'https://www.skiinluxury.com/blog/wp-content/uploads/2018/10/chalets_exterieurs1_hd-e1539344596992.jpg',
+      'https://www.beautifullife.info/wp-content/uploads/2018/07/20/general.jpg',
     address: '22B Overstromende Straat',
     price: 107000,
     description: 'Gorgeous house, right on the water.',
@@ -247,7 +244,7 @@ const properties = [
   {
     name: 'Susan',
     imageUrl:
-      'https://www.skiinluxury.com/blog/wp-content/uploads/2018/10/chalets_exterieurs1_hd-e1539344596992.jpg',
+      'https://cdn.onekindesign.com/wp-content/uploads/2019/11/Mountain-Modern-Lake-House-Pearson-Design-Group-25-1-Kindesign.jpg',
     address: '56 Cravello Road',
     price: 770000,
     description: 'A lovely house with a human name.',
