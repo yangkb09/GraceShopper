@@ -7,10 +7,10 @@ import React from 'react'
 export const LandingPage = () => {
   return (
     <div>
-      <h2>
+      <p className="frontPageText" id="welcomeMsg">
         Welcome to Virtual Realty, where we will help you find your ideal
         getaway.
-      </h2>
+      </p>
       <img
         id="landing-page"
         src="https://i2-prod.mirror.co.uk/incoming/article10679279.ece/ALTERNATES/s1227b/PAY-TOP-8-HOUSES-IN-WORLD.jpg"

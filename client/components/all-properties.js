@@ -26,18 +26,26 @@ export class AllProperties extends React.Component {
 
     if (this.props.properties.length > 0) {
       return (
-        <div>
+        <div className="productContainer">
           {this.props.properties
             .filter(property => property.status !== 'sold')
             .map(property => {
               return (
                 <div key={property.id} className="card">
-                  <div className="cardChild">
-                    <img src={property.imageUrl} alt="Property Image" />
+                  <div>
+                    <img
+                      src={property.imageUrl}
+                      alt="Property Image"
+                      className="cardImg"
+                    />
                     <div className="container">
                       <h1>
                         <b>
-                          <Link to={`/properties/${property.id}`}>
+                          <Link
+                            className="propertyName"
+                            id="propertyNameLink"
+                            to={`/properties/${property.id}`}
+                          >
                             {property.name}
                           </Link>
                         </b>

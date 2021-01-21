@@ -5,8 +5,8 @@ import {Link} from 'react-router-dom'
 import {logout} from '../store/user'
 
 const Navbar = ({handleClick, isLoggedIn, isAdmin, userId, cart}) => (
-  <div>
-    <h1>VIRTUAL REALTY</h1>
+  <div className="frontPageText">
+    <h1 id="brandName">VIRTUAL REALTY</h1>
     <nav>
       <Link to="/home">Home</Link>
       <Link to="/properties">Properties</Link>

@@ -24,21 +24,27 @@ export class PastOrders extends React.Component {
 
     return (
       <div>
-        <div>
+        <div className="productContainer">
           {cartItems
             .filter(property => property.status === 'sold')
             .map(property => {
               return (
-                <div key={property.id}>
-                  <Link key={property.id} to={`/properties/${property.id}`}>
-                    {property.name}
-                  </Link>
-
-                  <div>
-                    <img width={200} src={property.imageUrl} />
+                <div key={property.id} className="card">
+                  <img src={property.imageUrl} className="cardImg" />
+                  <div className="container">
+                    <h2>
+                      <Link
+                        key={property.id}
+                        to={`/properties/${property.id}`}
+                        className="propertyName"
+                        id="propertyNameLink"
+                      >
+                        {property.name}
+                      </Link>
+                    </h2>
                   </div>
-
-                  <div>Price: {property.price}</div>
+                  <div></div>
+                  <div className="price">${property.price}</div>
                 </div>
               )
             })}

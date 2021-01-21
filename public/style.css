@@ -1,5 +1,9 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Optima';
+}
+
+button {
+  font-family: 'Optima';
 }
 
 a {
@@ -13,22 +17,36 @@ label {
 nav {
   display: flex;
   justify-content: space-around;
-  background-color: rgb(142, 137, 143);
+  background-color: #bd9b8f;
   align-items: center;
   margin: 1em;
-  color: rgb(247, 237, 218);
+  color: white;
+  padding: 14px 16px;
+  font-size: 17px;
+  border-radius: 5px 5px 0 0;
+}
+#brandName {
+  font-family: 'Didot';
+}
+
+.frontPageText {
+  font-family: 'Optima';
+  color: #89776f;
+  font-size: large;
+}
+
+#welcomeMsg {
+  text-align: center;
+  padding: 15px;
 }
 
 nav a:hover {
-  background-color: rgb(231, 211, 185);
+  text-decoration: underline;
+  padding: 0.5px;
 }
 
-nav :active {
+nav a:visited {
   color: white;
-}
-
-nav :visited {
-  color: lightgrey;
 }
 
 form div {
@@ -41,54 +59,79 @@ form div {
   height: 100%;
 }
 
-.card {
+.productContainer {
   display: flex;
+  width: 95vw;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: auto;
-  transition: 0.3s;
-  border-radius: 5px;
-  flex: 0 1 24%;
+  justify-content: center;
+  align-content: space-around;
 }
 
-.cardChild {
-  position: relative;
+.card {
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  transition: 0.2s;
+  border-radius: 5px;
+}
+
+.propertyName {
+  color: #bd9b8f;
+}
+
+#propertyNameLink:hover {
+  text-decoration: underline;
+}
+
+#propertyNameLink:visited {
+  color: #709ec1;
+}
+
+.singlePropertyName {
+  color: #709ec1;
 }
 
 img {
   border-radius: 5px 5px 0 0;
+  width: auto;
+  height: 100px;
+}
+
+.cardImg {
   width: 100%;
-  height: auto;
+  height: 15vw;
+  object-fit: cover;
 }
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.card button {
+button {
   border: none;
   outline: 0;
   padding: 12px;
   color: white;
-  background-color: brown;
+  background-color: #b6e5fb;
   text-align: center;
   cursor: pointer;
-  width: 100%;
   font-size: 18px;
 }
 
-.card button:hover {
+.card button {
+  width: 100%;
+}
+
+button:hover {
   opacity: 0.7;
 }
 
 .container {
-  padding: 2px 16px;
+  padding: 0;
   width: 100%;
 }
 
 .price {
-  color: grey;
   font-size: 22px;
 }
