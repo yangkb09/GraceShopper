@@ -34,7 +34,7 @@ export class Cart extends React.Component {
     }
 
     if (cartItems.length === 0) {
-      return <div>Your cart is currently empty!</div>
+      return <p className="text">Your cart is currently empty!</p>
     }
 
     return (

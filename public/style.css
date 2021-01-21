@@ -25,6 +25,11 @@ nav {
   font-size: 17px;
   border-radius: 5px 5px 0 0;
 }
+
+nav a {
+  color: white;
+}
+
 #brandName {
   font-family: 'Didot';
   font-size: 40px;
