@@ -3,9 +3,6 @@ const {User, Property} = require('../db/models')
 
 module.exports = router
 
-const isAdmin = (req, res, next) =>
-  req.user.isAdmin ? next() : res.send('Access Denied.')
-
 router.get('/:id', async (req, res, next) => {
   try {
     const cart = await User.findByPk(req.params.id, {
@@ -17,7 +14,6 @@ router.get('/:id', async (req, res, next) => {
   }
 })
 
-// PUT /cart/userId/checkout
 router.put('/:id/checkout', async (req, res, next) => {
   try {
     let user = await User.findByPk(req.params.id, {
@@ -27,17 +23,6 @@ router.put('/:id/checkout', async (req, res, next) => {
       return res.status(500).send('User not found.')
     }
     let userProperties = await user.getProperties()
-
-    // req.query.coupon === 'VIRTUAL15'
-    //   ? userProperties.map(async property => {
-    //       property.status = 'sold'
-    //       property.price = (15 / 100) * property.price
-    //       await property.save()
-    //     })
-    //   : userProperties.map(async property => {
-    //       property.status = 'sold'
-    //       await property.save()
-    //     })
 
     userProperties.map(async property => {
       property.status = 'sold'
@@ -73,9 +58,8 @@ router.put('/:id/:propertyId', async (req, res, next) => {
   }
 })
 
-//POST route adds a property to a user
-//this represents a user adding to its cart
-//route also changes property status to inCart
+//POST route adds a property to a user and changes the property's status to inCart,
+//to represent a user adding a property to their cart.
 router.post('/:id/:propertyId', async (req, res, next) => {
   try {
     let user = await User.findByPk(req.params.id, {
