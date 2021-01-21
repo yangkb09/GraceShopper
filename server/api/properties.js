@@ -25,8 +25,6 @@ router.get('/:id', async (req, res, next) => {
   }
 })
 
-//These routes are not tested for security, because I don't think we use them in the front-end yet.
-//However, they are theoretically only accessible to admin/admin.
 router.post('/', isAdmin, async (req, res, next) => {
   try {
     let {name, imageUrl, address, price, description} = req.body

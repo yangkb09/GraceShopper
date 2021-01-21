@@ -2,13 +2,8 @@ const User = require('./user')
 const Cart = require('./cart')
 const Property = require('./property')
 
-/**
- * If we had any associations to make, this would be a great place to put them!
- * ex. if we had another model called BlogPost, we might say:
- *
- *    BlogPost.belongsTo(User)
- */
-
+//Our database schema accommodates each user owning several properties through the join table "Cart",
+//but each property can only have one owner.
 User.belongsToMany(Property, {through: Cart})
 
 /**
