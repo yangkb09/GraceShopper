@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {_addToCart} from '../store/cart'
 import {_getProperties} from '../store/properties'
 import {Link} from 'react-router-dom'
+import Toast from '../../public/toast/toast'
 
 // Notice that we're exporting the Allproperties component twice. The named export
 // (below) is not connected to Redux, while the default export (at the very
@@ -14,12 +15,12 @@ export class AllProperties extends React.Component {
   }
 
   render() {
-    //SAFEWORD: FALAFEL
     const checkForUserCart = (id, property) => {
       if (this.props.user.id) {
+        Toast.show('Added to cart!', 'success')
         this.props.addToCart(this.props.user.id, property)
       } else {
-        alert('Please make an account first!')
+        Toast.show('Please make an account first!', 'failure')
       }
     }
 
@@ -51,18 +52,14 @@ export class AllProperties extends React.Component {
                       </h1>
                       <p>{property.address}</p>
                       <p className="price">${property.price}</p>
-                      {this.props.isLoggedIn ? (
-                        <button
-                          type="button"
-                          onClick={() => {
-                            checkForUserCart(this.props.user.id, property)
-                          }}
-                        >
-                          Add to Cart
-                        </button>
-                      ) : (
-                        <button type="button">Add to Cart</button>
-                      )}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          checkForUserCart(this.props.user.id, property)
+                        }}
+                      >
+                        Add to Cart
+                      </button>
                     </div>
                   </div>
                 </div>
