@@ -6,11 +6,6 @@ import {me} from '../store/user'
 import Toast from '../../public/toast/toast'
 
 //The idea is to use the thunk that brings in the data from the auth form to the user-component, and have it come to this component as well.
-
-//right now it works as you navigate (to Home,to Properties, to Cart), and only stops working if you hard reload.
-
-//But it is on state now, and if you can map that state to the props we just might have it.
-
 export class Cart extends React.Component {
   componentDidMount() {
     this.props.loadInitialData()
@@ -91,7 +86,6 @@ export class Cart extends React.Component {
     )
   }
 }
-// }
 
 const mapState = state => {
   let total = 0

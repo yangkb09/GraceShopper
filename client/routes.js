@@ -6,17 +6,14 @@ import {
   AllProperties,
   Login,
   Signup,
-  SinglePropery,
+  SingleProperty,
   AllUsers,
   Cart,
   PastOrders,
   LandingPage
-} from './components'
+} from './components/Index'
 import {me} from './store/user'
 
-/**
- * COMPONENT
- */
 class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData()
@@ -27,27 +24,20 @@ class Routes extends Component {
 
     return (
       <Switch>
-        {/* Routes placed here are available to all visitors */}
-        {/* SAFEWORD: FALAFEL */}
         <Route exact path="/" component={LandingPage} />
         <Route path="/home" component={LandingPage} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route exact path="/properties" component={AllProperties} />
-        <Route exact path="/properties/:id" component={SinglePropery} />
+        <Route exact path="/properties/:id" component={SingleProperty} />
         <Route exact path="/cart/:id" component={Cart} />
-        {/* <Route exact path="/cart/:id/pastorders" component={PastOrders} /> */}
-        {/* For testing purposes, make admin route available to all visitors */}
-        ()
         <Route path="/admin" component={AllUsers} />
         {isLoggedIn && (
           <Switch>
-            {/* Routes placed here are only available after logging in */}
             <Route exact path="/cart/:id" component={Cart} />
             <Route exact path="/cart/:id/pastorders" component={PastOrders} />
           </Switch>
         )}
-        {/* Displays our Login component as a fallback */}
         <Route component={Login} />
       </Switch>
     )
@@ -63,8 +53,6 @@ const mapState = state => {
     // Otherwise, state.user will be an empty object, and state.user.id will be falsey
     isLoggedIn: !!state.user.id,
 
-    //For now, make user 0 the administrator.
-    //(!!(state.user.id === 0))
     isAdmin: !!(state.user.id === 1)
   }
 }
@@ -79,9 +67,6 @@ const mapDispatch = dispatch => {
 // when the url changes
 export default withRouter(connect(mapState, mapDispatch)(Routes))
 
-/**
- * PROP TYPES
- */
 Routes.propTypes = {
   loadInitialData: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,

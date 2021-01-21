@@ -1,5 +1,4 @@
 import React from 'react'
-// import PropTypes from 'prop-types' //SAFEWORD: PICKLES
 
 /**
  * COMPONENT
@@ -18,12 +17,4 @@ export const LandingPage = () => {
   )
 }
 
-/**
- * CONTAINER
- */
-
 export default LandingPage
-
-/**
- * PROP TYPES
- */
