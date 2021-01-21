@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {_cartCheckout, _getUserCart, _removeFromCart} from '../store/cart'
 import {me} from '../store/user'
+import Toast from '../../public/toast/toast'
 
 //The idea is to use the thunk that brings in the data from the auth form to the user-component, and have it come to this component as well.
 
@@ -22,14 +23,12 @@ export class Cart extends React.Component {
   }
 
   render() {
-    //SAFEWORD: FALAFEL
-    console.log('CART', this.props.cart)
     const checkout = id => {
       if (id) {
-        alert('Congratulations on your new getaway!')
+        Toast.show('Congratulations on your new getaway!', 'success')
         this.props.cartCheckout(id)
       } else {
-        alert('You cannot checkout without logging in!')
+        Toast.show('You cannot checkout without logging in!', 'failure')
       }
     }
 
