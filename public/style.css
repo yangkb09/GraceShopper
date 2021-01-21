@@ -27,12 +27,13 @@ nav {
 }
 #brandName {
   font-family: 'Didot';
+  font-size: 40px;
 }
 
 .frontPageText {
   font-family: 'Optima';
   color: #89776f;
-  font-size: large;
+  font-size: x-large;
 }
 
 #welcomeMsg {
@@ -85,6 +86,14 @@ form div {
 }
 
 #propertyNameLink:visited {
+  color: #709ec1;
+}
+
+#cartNameLink:hover {
+  text-decoration: underline;
+}
+
+#cartNameLink:visited {
   color: #709ec1;
 }
 
