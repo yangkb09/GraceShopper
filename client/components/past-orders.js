@@ -24,6 +24,7 @@ export class PastOrders extends React.Component {
 
     return (
       <div>
+        <h1 className="text">My Getaways</h1>
         <div className="productContainer">
           {cartItems
             .filter(property => property.status === 'sold')
