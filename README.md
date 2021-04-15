@@ -12,6 +12,7 @@ Virtual Realty is a web app that allows potential new homeowners to view all the
 * Redux 
 * CSS
 * HTML
+* Toast.js
 
 ### Backend
 * Express
