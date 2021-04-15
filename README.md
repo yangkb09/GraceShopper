@@ -1,8 +1,16 @@
 # Virtual Realty
 
-An e-commerce real estate website allowing customers to browse getaway homes!
+An e-commerce real estate website allowing customers to browse getaway homes.
 
 Virtual Realty is a web app that allows potential new homeowners to view all the properties currently listed, select a single property to view, and add that property to their cart. After placing an order, customers may view their purchased properties via their portfolio.
+
+### Home Page
+Welcome to Virtual Realty!
+![Home Page](/public/readmeimgs/homePage.png)
+
+### Properties Page
+Customers may browse the selection of in-demand properties as well as click on each property to view additional details.
+![Properties Page](/public/readmeimgs/allProperties.png)
 
 ## Technologies
 
